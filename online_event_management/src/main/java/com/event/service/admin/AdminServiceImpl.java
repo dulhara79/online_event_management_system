@@ -1,4 +1,4 @@
-package com.event.admin.service;
+package com.event.service.admin;
 
 public class AdminServiceImpl {
 
