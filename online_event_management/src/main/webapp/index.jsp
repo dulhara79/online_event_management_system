@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>This is admin home page</h1>
+<h1>This is home page</h1>
 </body>
 </html>
