@@ -1,4 +1,4 @@
-package com.event.servlets.admin;
+package com.event.servlet.admin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
