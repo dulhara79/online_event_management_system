@@ -1,4 +1,4 @@
-package com.event.servlets.util;
+package com.event.util;
 
 public class CommonConstatnts {
 
