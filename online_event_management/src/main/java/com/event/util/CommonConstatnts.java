@@ -55,11 +55,14 @@ public class CommonConstatnts {
 
 	/** Constant for Column index nine */
 	public static final int COLUMN_INDEX_NINE = 9;
+	
 
 	/*
 	 * User constants 
 	 */	
-		
+	
+	/** Constant for user id prefix */
+	public static final String USER_ID_PREFIX = "U0000";
 	
 	
 	
@@ -68,7 +71,8 @@ public class CommonConstatnts {
 	 * Coordinator constants
 	 */
 	
-	
+	/** Constant for coordinator id prefix */
+	public static final String COORDINATOR_ID_PREFIX = "C0000";
 	
 	
 	
@@ -76,8 +80,9 @@ public class CommonConstatnts {
 	/*
 	 * Company constants
 	 */
-	 
 	
+	/** Constant for company id prefix */
+	public static final String COMPANY_ID_PREFIX = "CP0000";
 	
 	
 	
@@ -86,4 +91,10 @@ public class CommonConstatnts {
 	/*
 	 * Admin constants
 	 */
+	
+	/** Constant for admin id prefix */
+	public static final String ADMIN_ID_PREFIX = "AD0000";
+	
+	/**create admin table in queries.xml*/
+	public static final String QUERY_ID_CREATE_ADMIN_TABLE = "create_admin_table";
 }
