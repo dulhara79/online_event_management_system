@@ -1,6 +1,6 @@
 package com.event.util;
 
-public class CommonConstatnts {
+public class CommonConstants {
 
 	/** Constant for config.properties key for query file path */
 	public static final String QUERY_XML = "queryFilePath";
@@ -12,7 +12,7 @@ public class CommonConstatnts {
 	public static final String TAG_NAME = "query";
 
 	/** Constant for query id in queries.xml */
-	public static final String ATTRIB_ID = "id";
+	public static final String ATTRIBUTE_NAME = "id";
 
 	/** Constant for comma */
 	public static final String COMMA = ",";
@@ -57,33 +57,33 @@ public class CommonConstatnts {
 	public static final int COLUMN_INDEX_NINE = 9;
 
 	/*
-	 * User constants 
-	 */	
-		
-	
-	
-	
-	
+	 * User constants
+	 */
+
+	/** Constant for user id prefix */
+	public static final String USER_ID_PREFIX = "U0000";
+
 	/*
 	 * Coordinator constants
 	 */
-	
-	
-	
-	
-	
-	 
+
+	/** Constant for coordinator id prefix */
+	public static final String COORDINATOR_ID_PREFIX = "C0000";
+
 	/*
 	 * Company constants
 	 */
-	 
-	
-	
-	
-	
-	
-	 
+
+	/** Constant for company id prefix */
+	public static final String COMPANY_ID_PREFIX = "CP0000";
+
 	/*
 	 * Admin constants
 	 */
+
+	/** Constant for admin id prefix */
+	public static final String ADMIN_ID_PREFIX = "AD0000";
+
+	/** create admin table in queries.xml */
+	public static final String QUERY_ID_CREATE_ADMIN_TABLE = "create_admin_table";
 }
