@@ -120,4 +120,6 @@ public class CommonConstants {
 
 	/** create admin table in queries.xml */
 	public static final String QUERY_ID_CREATE_ADMIN_TABLE = "create_admin_table";
+	
+	public static final String QUERY_ID_GET_ADMIN_BY_ID = "get_admin_by_id";
 }
