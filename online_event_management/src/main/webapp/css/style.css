@@ -1,0 +1,101 @@
+/* Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Form Container */
+.admin-add-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Labels */
+.admin-form-label {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Text Inputs */
+.admin-form-input[type="text"],
+.admin-form-input[type="email"],
+.admin-form-input[type="password"],
+.admin-form-textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Radio Buttons */
+.admin-form-radio {
+    margin: 8px 0;
+}
+
+.admin-form-radio label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+/* Address Textarea */
+.admin-user-address-area {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.admin-user-address-area:focus {
+    border-color: #007bff;
+}
+
+
+/* Submit Button */
+.admin-form-submit-button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.admin-form-submit-button:hover {
+    background-color: #45a049;
+}
+
+/* Form Validation Errors */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
