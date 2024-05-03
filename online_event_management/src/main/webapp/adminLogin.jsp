@@ -8,13 +8,14 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/userLoginStyle.css">
+<link rel="stylesheet" type="text/css" href="css/adminLoginStyle.css">
 </head>
 <body>
-<form action="<%= request.getContextPath() %>/UserLoginServlet" method="post">
+<h1>Admin Login</h1>
+<form action="<%= request.getContextPath() %>/AdminLoginServlet" method="post">
 
 	<label class="admin-form-lable" for="admin-user-name">User ID</label>
-	<input class="admin-form-input" type="text" name="userId" placeholder="Enter user ID" required="required">
+	<input class="admin-form-input" type="text" name="adminId" placeholder="Enter user ID" required="required">
 	
 	<br>
 	
@@ -25,8 +26,6 @@
 	
 	<input class="admin-form-submit-button " type="submit" name="submit" value="Login">
 </form>
-
-<p class="admin-form-lable"><a href="adminLogin.jsp">Admin Login</a></p>
 
 <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
 

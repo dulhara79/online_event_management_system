@@ -4,7 +4,7 @@
 <% String logoutUrl = "logout.jsp"; %> 
    
 <%
-	String userID = (String) session.getAttribute("userId");
+	String userID = (String) session.getAttribute("adminId");
  	String userName = (String) session.getAttribute("userName");
 %>
     
@@ -23,7 +23,7 @@
 			
 			request.getSession().removeAttribute("status");
 		} else {
-			response.sendRedirect("userLogin.jsp");
+			response.sendRedirect("adminLogin.jsp");
 		}
 	
 %>
@@ -32,18 +32,18 @@
 
 <nav class="navbar">
         <div class="container">
-            <h1 class="logo">Admin Panel</h1>
+            <h1 class="logo">Admin <%= userName %></h1>
             <ul class="nav-links">
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Users</a></li>
+                <li><a href="adminAllUser.jsp">Users</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Reports</a></li>
-                <li><a href="#">Logout</a></li>
+                <li><a href="logout.jsp">Logout</a></li>
             </ul>
         </div>
     </nav>
     
 <h1>This is admin home page</h1>
-<a href="adminAddUser.jsp">click Here</a>
+<a href="adminAddUser.jsp">Add user</a>
 </body>
 </html>
