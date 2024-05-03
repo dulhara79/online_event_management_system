@@ -1,4 +1,3 @@
-<!-- Event index.jsp -->
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -11,6 +10,7 @@
 <body>
 <h1>This is home page</h1>
 
+<!-- Event index.jsp -->
 <h2>Insert Event</h2>
 
 <form action="<%= request.getContextPath()%>/AddEventServlet" method = "post">
