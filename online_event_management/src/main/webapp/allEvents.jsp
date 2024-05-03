@@ -12,10 +12,86 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <title>Insert title here</title>
+
 </head>
 <body>
-<h2>All Events</h2>
+<h2>All Public Events</h2>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 20px;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 3px solid #ddd;
+    }
+    th {
+        background-color: #4c90af;
+        color: white;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #ddd;
+    }
+    form {
+        display: inline-block; /* Form elements inline */
+    }
+    input[type="submit"] {
+        background-color: #071ef0; /* Red color */
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 2px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    input[type="submit"]:hover {
+        background-color: #d32f2f; /* Darker red on hover */
+    }
+    
+    /* Style for Add event button */
+    #add-event-btn {
+        background-color: #4CAF50; /* Green color */
+        border: none;
+        color: white;
+        padding: 8px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+    
+    #add-event-btn:hover {
+        background-color: #45a049; /* Darker green on hover */
+    }
+</style>
+
+<form action="<%= request.getContextPath()%>/index.jsp" method="post">
+    <input type="submit" value="Add Event" id="add-event-btn">
+</form>
 
 <table>
 	<thead>
@@ -62,7 +138,9 @@
 				<td>
 					<form action="<%= request.getContextPath()%>/DeleteEventServlet" method="post">
 						<input type="hidden" name="eventId" value="<%= events.getEventId() %>"> 
-						<input type="submit" value="Delete">
+						<button type="submit" class="btn btn-danger">
+           				 <i class="fa-solid fa-trash fa-xl" style="color: #e61414;"></i>
+      					</button>
 					</form>
 				
 				</td>
@@ -77,6 +155,10 @@
 	</tbody>
 
 </table>
+
+<form action="<%= request.getContextPath()%>/view.jsp" method="post">
+    <input type="submit" value="View Events" id="view-event-btn">
+</form>
 
 </body>
 </html>
