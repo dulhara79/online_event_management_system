@@ -12,10 +12,10 @@
 		]]>
 	</query>
 	
-<<<<<<< Updated upstream
+
 	<!-- start event table queries -->
-	<query id="create_event_table">
-=======
+	<!-- <query id="create_event_table"> -->
+
 	<!-- create user table -->
 	<query id="create_user_table">
 		<![CDATA[
