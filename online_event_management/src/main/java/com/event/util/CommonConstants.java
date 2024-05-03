@@ -1,5 +1,8 @@
 package com.event.util;
 
+/**
+ * 
+ */
 public class CommonConstants {
 
 	/** Constant for config.properties key for query file path */
@@ -67,8 +70,21 @@ public class CommonConstants {
 	 * Coordinator constants
 	 */
 
-	/** Constant for coordinator id prefix */
-	public static final String COORDINATOR_ID_PREFIX = "C0000";
+	public static final String EVENT_ID_PREFIX = "E0000";
+	
+	public static final String QUERY_ID_CREATE_EVENT_TABLE = "create_event_table";
+	
+	public static final String QUERY_ID_INSERT_EVENT = "insert_event";
+	
+	public static final String QUERY_ID_GET_EVENT_IDS = "get_event_ids"; 
+	
+	public static final String QUERY_ID_GET_ALL_EVENTS = "get_event_all_events";
+	
+	public static final String QUERY_ID_GET_EVENT_BY_ID = "get_event_by_id";
+	
+	public static final String QUERY_ID_UPDATE_EVENT = "update_event";
+	
+	public static final String QUERY_ID_DELETE_EVENT = "delete_event";
 
 	/*
 	 * Company constants

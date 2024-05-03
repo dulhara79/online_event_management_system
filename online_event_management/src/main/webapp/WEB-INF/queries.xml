@@ -12,23 +12,68 @@
 		]]>
 	</query>
 	
-	<query id=" ">
+	<!-- start event table queries -->
+	<query id="create_event_table">
 		<![CDATA[
-		
+			CREATE TABLE events(
+				eventId varchar(10) NOT NULL,
+				eventName varchar(20),
+				eventDate varchar(10),
+				venue varchar(30),
+				eventDescription varchar(50),
+				budget double,
+				PRIMARY KEY (eventId)
+			);
+			
 		]]>
 	</query>
 	
-	<query id=" ">
+	<!-- event table queries -->
+	<query id="insert_event">
 		<![CDATA[
-		
+			INSERT INTO events(eventId,eventName,eventDate,venue,eventDescription,budget)
+			VALUES(?,?,?,?,?,?);			
 		]]>
 	</query>
 	
-	<query id=" ">
+	<!-- event table queries -->
+	<query id="get_event_ids">
 		<![CDATA[
-		
+			SELECT eventId FROM events;
 		]]>
 	</query>
+	
+	<!-- event table queries -->
+	<query id="get_event_all_events">
+		<![CDATA[
+			SELECT * FROM events;
+		]]>
+	</query>
+	
+	<!-- event table queries -->
+	<query id="get_event_by_id">
+		<![CDATA[
+			SELECT * FROM events WHERE eventId = ?;
+		]]>
+	</query>
+	
+	<!-- event table queries -->
+	<query id="update_event">
+		<![CDATA[
+			UPDATE events 
+			SET eventName = ?, eventDate = ?, venue = ?, eventDescription = ?, budget = ?
+			WHERE eventId = ?
+		]]>
+	</query>
+	
+	<!-- event table queries -->
+	<query id="delete_event">
+		<![CDATA[
+			DELETE FROM events WHERE eventId = ?
+		]]>
+	</query>
+	
+	<!-- End event table queries -->
 	
 	<query id=" ">
 		<![CDATA[
