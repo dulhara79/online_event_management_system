@@ -10,6 +10,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+/**
+ * 
+ */
 public class QueryUtil extends CommonUtil {
 
 	public static String queryById(String id) throws SAXException, IOException, ParserConfigurationException {
@@ -33,5 +36,7 @@ public class QueryUtil extends CommonUtil {
 		return element.getTextContent().trim();
 
 	}
+	
+	
 
 }

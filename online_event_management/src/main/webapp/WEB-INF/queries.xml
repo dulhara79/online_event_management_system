@@ -12,6 +12,79 @@
 		]]>
 	</query>
 	
+<<<<<<< Updated upstream
+	<!-- start event table queries -->
+	<query id="create_event_table">
+=======
+	<!-- create user table -->
+	<query id="create_user_table">
+		<![CDATA[
+		CREATE TABLE user (
+			userId varchar(10) PRIMARY KEY,
+			userName varchar(25),
+			firstName varchar(25),
+			lastName varchar(25),
+			gender varchar(25),
+			address varchar(25),
+			phoneNo varchar(25),
+			email varchar(25),
+			password varchar(25)
+		);
+		]]>
+	</query>
+	
+	<!-- get user ids  -->
+	<query id="get_user_ids">
+		<![CDATA[
+			SELECT userId  FROM user;
+		]]>
+	</query>
+	
+	<!-- insert values to the user table -->
+	<query id="insert_user">
+		<![CDATA[
+			INSERT INTO user(userId, userName, firstName, lastName, gender, address, phoneNo, email, password)
+			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+		]]>
+	</query>
+	
+	<!-- get all users -->
+	<query id="get_all_user">
+		<![CDATA[
+			SELECT * FROM user;
+		]]>
+	</query>
+	
+	<!-- get user by id -->
+	<query id="get_user_by_id">
+		<![CDATA[
+			SELECT *
+			FROM user
+			WHERE userId = ?;
+		]]>
+	</query>
+	
+	<query id="update_user_by_id">
+		<![CDATA[
+			UPDATE user
+			SET userName = ?, firstName = ?, lastName = ?, gender = ?, address = ?, phoneNo = ?, email = ?, password = ?
+			WHERE userId = ?;
+		]]>
+	</query>
+	
+	<query id="delete_user_by_id">
+		<![CDATA[
+			DELETE FROM user
+			WHERE userId = ?;
+		]]>
+	</query>
+	
+	<query id=" ">
+		<![CDATA[
+		
+		]]>
+	</query>
+	
 	<query id=" ">
 		<![CDATA[
 		
@@ -29,6 +102,75 @@
 		
 		]]>
 	</query>
+	
+	<query id=" ">
+		<![CDATA[
+		
+		]]>
+	</query>
+	
+	<query id=" ">
+>>>>>>> Stashed changes
+		<![CDATA[
+			CREATE TABLE events(
+				eventId varchar(10) NOT NULL,
+				eventName varchar(20),
+				eventDate varchar(10),
+				venue varchar(30),
+				eventDescription varchar(50),
+				budget double,
+				PRIMARY KEY (eventId)
+			);
+			
+		]]>
+	</query>
+	
+	<!-- event table queries -->
+	<query id="insert_event">
+		<![CDATA[
+			INSERT INTO events(eventId,eventName,eventDate,venue,eventDescription,budget)
+			VALUES(?,?,?,?,?,?);			
+		]]>
+	</query>
+	
+	<!-- event table queries -->
+	<query id="get_event_ids">
+		<![CDATA[
+			SELECT eventId FROM events;
+		]]>
+	</query>
+	
+	<!-- event table queries -->
+	<query id="get_event_all_events">
+		<![CDATA[
+			SELECT * FROM events;
+		]]>
+	</query>
+	
+	<!-- event table queries -->
+	<query id="get_event_by_id">
+		<![CDATA[
+			SELECT * FROM events WHERE eventId = ?;
+		]]>
+	</query>
+	
+	<!-- event table queries -->
+	<query id="update_event">
+		<![CDATA[
+			UPDATE events 
+			SET eventName = ?, eventDate = ?, venue = ?, eventDescription = ?, budget = ?
+			WHERE eventId = ?
+		]]>
+	</query>
+	
+	<!-- event table queries -->
+	<query id="delete_event">
+		<![CDATA[
+			DELETE FROM events WHERE eventId = ?
+		]]>
+	</query>
+	
+	<!-- End event table queries -->
 	
 	<query id=" ">
 		<![CDATA[

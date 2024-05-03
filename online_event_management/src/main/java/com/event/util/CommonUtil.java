@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Properties;
 
+/**
+ * 
+ */
 public class CommonUtil {
 
 	public static final Properties properties = new Properties();
@@ -39,18 +42,21 @@ public class CommonUtil {
 
 	}
 	
-	//Generate coordinator ID with prefix
-	public static String generateCoordinatorIDs(ArrayList<String> arraylist) {
+	//Generate event ID with prefix
+		public static String generateEventIds(ArrayList<String> ids) {
 		
 		String id;
-		int next = arraylist.size();
 		
-		id = CommonConstants.COORDINATOR_ID_PREFIX + next;
+		int next = ids.size();
 		
-		if(arraylist.contains(id)) {
+		id = CommonConstants.EVENT_ID_PREFIX + next;
+		
+		if(ids.contains(id)) {
+			
 			next++;
 			
-			id = CommonConstants.COORDINATOR_ID_PREFIX + next;
+			id = CommonConstants.EVENT_ID_PREFIX + next;
+			
 		}
 		
 		return id;
