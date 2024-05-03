@@ -26,7 +26,10 @@
 	<input class="admin-form-submit-button " type="submit" name="submit" value="Login">
 </form>
 
+<p class="admin-form-lable"><a href="adminLogin.jsp">Admin Login</a></p>
+
 <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+
     <div class="error-message">
         <%= errorMessage %>
     </div>
