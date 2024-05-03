@@ -12,9 +12,20 @@
 		]]>
 	</query>
 	
-<<<<<<< Updated upstream
+	<query id="get_admin_by_id">
+		<![CDATA[
+			SELECT *
+			FROM admin
+			WHERE adminId = ?;
+		]]>
+	</query>
+	
+	
+	
+<!-- <<<<<<< Updated upstream -->
 	<!-- start event table queries -->
 	<query id="create_event_table">
+	</query>
 =======
 	<!-- create user table -->
 	<query id="create_user_table">
