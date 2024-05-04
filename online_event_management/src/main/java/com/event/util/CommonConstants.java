@@ -110,6 +110,8 @@ public class CommonConstants {
 
 	/** Constant for company id prefix */
 	public static final String COMPANY_ID_PREFIX = "CP0000";
+	
+	
 
 	/*
 	 * Admin constants
