@@ -12,6 +12,7 @@
 		]]>
 	</query>
 	
+
 	<query id="get_admin_by_id">
 		<![CDATA[
 			SELECT *
@@ -22,11 +23,6 @@
 	
 	
 	
-<!-- <<<<<<< Updated upstream -->
-	<!-- start event table queries -->
-	<query id="create_event_table">
-	</query>
-=======
 	<!-- create user table -->
 	<query id="create_user_table">
 		<![CDATA[
@@ -96,8 +92,20 @@
 		]]>
 	</query>
 	
-	<query id=" ">
+
+
+	<query id="create_booking_table">
+
 		<![CDATA[
+		CREATE TABLE booking
+		(
+			booking_id char(10) PRIMARY KEY,
+			user_id char(10) UNIQUE NOT NULL,
+			event_id char(10) NOT NULL,
+			payment_id varchar(20) NOT NULL,
+			service_id char(10) NOT NULL,
+			event_description varchar(100)
+		);	
 		
 		]]>
 	</query>
@@ -121,7 +129,7 @@
 	</query>
 	
 	<query id=" ">
->>>>>>> Stashed changes
+
 		<![CDATA[
 			CREATE TABLE events(
 				eventId varchar(10) NOT NULL,
