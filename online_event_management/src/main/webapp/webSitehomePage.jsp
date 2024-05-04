@@ -49,13 +49,13 @@
         <section>
         	<h2>Memories</h2>
         		<div class="event">
-                   <img class="event party_img" alt="party1" src="partyImg1.jpg">
+                   <img class="event party_img" alt="party1" src="img/partyImg1.jpg">
            
-                   <img class="event party_img" alt="party2" src="partyImg2.jpg">
+                   <img class="event party_img" alt="party2" src="img/partyImg2.jpg">
                 
-                   <img class="event party_img" alt="party3" src="partyImg3.jpg">
+                   <img class="event party_img" alt="party3" src="img/partyImg3.jpg">
                    
-                   <img class="event party_img" alt="party3" src="partyImg5.jpg">
+                   <img class="event party_img" alt="party3" src="img/partyImg5.jpg">
                 </div>
         
         </section>
