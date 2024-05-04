@@ -109,8 +109,8 @@
 		]]>
 	</query>
 	
-	<query id=" ">
->>>>>>> Stashed changes
+	<query id="create_event_table ">
+
 		<![CDATA[
 			CREATE TABLE events(
 				eventId varchar(10) NOT NULL,
