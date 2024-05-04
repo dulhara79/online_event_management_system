@@ -85,7 +85,7 @@ public class CommonConstants {
 	
 
 	/*
-	 * Coordinator constants
+	 * Event constants
 	 */
 
 	public static final String EVENT_ID_PREFIX = "E0000";

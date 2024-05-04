@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <queries>
-	<!-- create admin table query -->
-	<query id="create_admin_table">
-		<![CDATA[
-		CREATE TABLE admin (
-			adminId varchar(10) PRIMARY KEY,
-			userName varchar(20) NOT NULL,
-			password varchar(20) NOT NULL,
-		);	
-		]]>
-	</query>
 	
+	   <query id="create_admin_table">
+    	<![CDATA[
+   		CREATE TABLE admin (
+        adminId varchar(10) PRIMARY KEY,
+        userName varchar(20) NOT NULL,
+        password varchar(20) NOT NULL
+   	 );  
+    	]]>
+	</query>
+
+	
+
+
+
+	<query id="get_user_by_id">
+   		<![CDATA[
+        SELECT *
+        FROM user
+        WHERE userId = ?;
+    	]]>
+	</query> 
+
 
 	<query id="get_admin_by_id">
 		<![CDATA[
@@ -20,10 +32,12 @@
 			WHERE adminId = ?;
 		]]>
 	</query>
+
 	
-	
+
 	
 	<!-- create user table -->
+
 	<query id="create_user_table">
 		<![CDATA[
 		CREATE TABLE user (
@@ -40,14 +54,14 @@
 		]]>
 	</query>
 	
-	<!-- get user ids  -->
+	
 	<query id="get_user_ids">
 		<![CDATA[
 			SELECT userId  FROM user;
 		]]>
 	</query>
 	
-	<!-- insert values to the user table -->
+	
 	<query id="insert_user">
 		<![CDATA[
 			INSERT INTO user(userId, userName, firstName, lastName, gender, address, phoneNo, email, password)
@@ -55,14 +69,14 @@
 		]]>
 	</query>
 	
-	<!-- get all users -->
+	
 	<query id="get_all_user">
 		<![CDATA[
 			SELECT * FROM user;
 		]]>
 	</query>
 	
-	<!-- get user by id -->
+	
 	<query id="get_user_by_id">
 		<![CDATA[
 			SELECT *
@@ -84,14 +98,12 @@
 			DELETE FROM user
 			WHERE userId = ?;
 		]]>
-	</query>
+	</query> 
 	
-	<query id=" ">
-		<![CDATA[
-		
-		]]>
-	</query>
 	
+
+
+
 
 
 	<query id="create_booking_table">
@@ -130,6 +142,7 @@
 	
 	<query id=" ">
 
+
 		<![CDATA[
 			CREATE TABLE events(
 				eventId varchar(10) NOT NULL,
@@ -144,7 +157,7 @@
 		]]>
 	</query>
 	
-	<!-- event table queries -->
+	
 	<query id="insert_event">
 		<![CDATA[
 			INSERT INTO events(eventId,eventName,eventDate,venue,eventDescription,budget)
@@ -152,56 +165,43 @@
 		]]>
 	</query>
 	
-	<!-- event table queries -->
+	
 	<query id="get_event_ids">
 		<![CDATA[
 			SELECT eventId FROM events;
 		]]>
 	</query>
 	
-	<!-- event table queries -->
+	
 	<query id="get_event_all_events">
 		<![CDATA[
 			SELECT * FROM events;
 		]]>
 	</query>
 	
-	<!-- event table queries -->
+	
 	<query id="get_event_by_id">
 		<![CDATA[
 			SELECT * FROM events WHERE eventId = ?;
 		]]>
 	</query>
 	
-	<!-- event table queries -->
+	
 	<query id="update_event">
 		<![CDATA[
 			UPDATE events 
 			SET eventName = ?, eventDate = ?, venue = ?, eventDescription = ?, budget = ?
-			WHERE eventId = ?
+			WHERE eventId = ?;
 		]]>
 	</query>
 	
-	<!-- event table queries -->
+	
 	<query id="delete_event">
 		<![CDATA[
-			DELETE FROM events WHERE eventId = ?
+			DELETE FROM events WHERE eventId = ?;
 		]]>
-	</query>
+	</query> 
 	
 	<!-- End event table queries -->
 	
-	<query id=" ">
-		<![CDATA[
-		
-		]]>
-	</query>
-	
-	<query id=" ">
-		<![CDATA[
-		
-		]]>
-	</query>
-
-
 </queries>
