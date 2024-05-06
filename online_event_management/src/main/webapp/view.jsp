@@ -18,12 +18,26 @@
 <h2>View Public Events</h2>
 
 <style>
+
     body {
-        font-family: Arial, sans-serif;
-        background-image: url('img/img27.jpg');
-        background-size: cover;
-        background-attachment: fixed; 
-    }
+    font-family: Arial, sans-serif;
+    position: relative;
+	}
+	
+	body::before {
+	    content: "";
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background-image: url('img/img27.jpg');
+	    background-size: cover;
+	    background-attachment: fixed;
+	    opacity: 0.9; 
+	    z-index: -1;
+	}
+
     h2 {
     	color: #000000;
         text-align: center;
