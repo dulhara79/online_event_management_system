@@ -78,4 +78,23 @@ public class CommonUtil {
 		
 		return id;
 	}
+	
+	//Generate booking ID with prefix
+	public static String generateBookingIds(ArrayList<String> ids)
+	{
+		String id;
+		
+		int next = ids.size();
+		
+		id = CommonConstants.BOOKING_ID_PREFIX + next;
+		
+		if(ids.contains(id))
+		{
+			next++;
+			
+			id = CommonConstants.BOOKING_ID_PREFIX + next;
+		}
+		
+		return id;
+	}
 }

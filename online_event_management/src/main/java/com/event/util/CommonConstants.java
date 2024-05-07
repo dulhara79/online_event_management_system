@@ -124,4 +124,22 @@ public class CommonConstants {
 	public static final String QUERY_ID_CREATE_ADMIN_TABLE = "create_admin_table";
 	
 	public static final String QUERY_ID_GET_ADMIN_BY_ID = "get_admin_by_id";
+	
+	
+	
+	
+	/*
+	 * Booking constants
+	 */
+	
+	public static final String BOOKING_ID_PREFIX = "BK0000";
+	
+	public static final String QUERY_ID_CREATE_BOOKING_TABLE = "create_booking_table";
+	
+	public static final String QUERY_ID_INSERT_BOOKING = "insert_booking";
+	
+	public static final String QUERY_ID_GET_BOOKING_IDS = "get_booking_ids";
+	
+	
+	
 }

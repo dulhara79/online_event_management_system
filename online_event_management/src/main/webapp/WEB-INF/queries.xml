@@ -111,25 +111,27 @@
 		<![CDATA[
 		CREATE TABLE booking
 		(
-			booking_id char(10) PRIMARY KEY,
-			user_id char(10) UNIQUE NOT NULL,
-			event_id char(10) NOT NULL,
+			booking_id varchar(10) PRIMARY KEY,
+			user_name varchar(25) NOT NULL,
+			event_name varchar(25) NOT NULL,
 			payment_id varchar(20) NOT NULL,
-			service_id char(10) NOT NULL,
+			service_name varchar(25) NOT NULL,
 			event_description varchar(100)
 		);	
-		
 		]]>
 	</query>
 	
-	<query id=" ">
+	<query id="insert_booking">
 		<![CDATA[
-		
+		INSERT INTO booking(booking_id, user_name, event_name, payment_id, service_name, event_description)
+		VALUES(?, ?, ?, ?, ?, ?);
 		]]>
 	</query>
 	
-	<query id=" ">
+	<query id="get_booking_ids">
 		<![CDATA[
+		SELECT booking_id
+		FROM booking;
 		
 		]]>
 	</query>
