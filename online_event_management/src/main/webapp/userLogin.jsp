@@ -12,6 +12,7 @@
 </head>
 <body>
 <form action="<%= request.getContextPath() %>/UserLoginServlet" method="post">
+	<h1 style="margin-left: 100px;">User Login</h1>
 
 	<label class="admin-form-lable" for="admin-user-name">User ID</label>
 	<input class="admin-form-input" type="text" name="userId" placeholder="Enter user ID" required="required">
@@ -24,9 +25,15 @@
 	<br>
 	
 	<input class="admin-form-submit-button " type="submit" name="submit" value="Login">
+	
+	<h5 class="admin-form-lable" style="margin-left: 30px;"> 
+		<a href="adminLogin.jsp" style="text-decoration: none; color: blue;">Admin Login</a> |
+		<a href="#" style="text-decoration: none; color: blue;">Coordinator Login</a> |
+		<a href="#" style="text-decoration: none; color: blue;">Company Login</a>
+	</h5>
 </form>
 
-<p class="admin-form-lable"><a href="adminLogin.jsp">Admin Login</a></p>
+
 
 <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
 
