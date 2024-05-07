@@ -60,6 +60,8 @@ public class UpdateUserServlet extends HttpServlet {
 		IUserService iuserservice = new UserServiceImpl();
 		iuserservice.updateUser(userId, user);
 		
+		System.out.println("Admin update servlet user id: " + userId);
+		
 		request.setAttribute("user", user);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminAllUser.jsp");
 		dispatcher.forward(request, response);

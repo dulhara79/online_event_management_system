@@ -1,40 +1,32 @@
 @charset "ISO-8859-1";
-/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
 }
 
-/* Navigation Bar Styles */
 .navbar {
     background-color: #333;
     color: #fff;
-    padding: 10px 0;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar .logo {
-    margin: 0;
+.logo {
     font-size: 24px;
+    margin: 0;
 }
 
 .nav-links {
-    list-style-type: none;
-    margin: 0;
+    list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .nav-links li {
@@ -45,46 +37,60 @@ body {
 .nav-links li a {
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease;
+    transition: color 0.3s;
 }
 
 .nav-links li a:hover {
     color: #ffc107;
 }
 
-/* Logout Button Styles */
-.logout-btn {
-    background-color: #d9534f;
-    color: #fff;
-    border: none;
+.sidebar {
+    background-color: #f4f4f4;
+    width: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding-top: 60px;
+}
+
+.sidebar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin-bottom: 10px;
+}
+
+.sidebar-nav li a {
+    display: block;
     padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-}
-
-.logout-btn:hover {
-    background-color: #c9302c;
-}
-
-/* Admin Home Page Styles */
-.admin-home {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.admin-home h2 {
     color: #333;
-    font-size: 36px;
+    text-decoration: none;
+}
+
+.sidebar-nav li a:hover {
+    background-color: #ddd;
+}
+
+.content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.events {
+    margin-top: 40px;
+}
+
+.event {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
     margin-bottom: 20px;
 }
 
-.admin-home p {
-    color: #555;
-    font-size: 18px;
-    line-height: 1.6;
+.event h3 {
+    margin-top: 0;
 }

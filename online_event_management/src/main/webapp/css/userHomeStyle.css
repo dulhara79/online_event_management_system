@@ -199,7 +199,7 @@ body {
     
     /*------------------------------------------------------*/
     
-        body {
+/*        body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
@@ -259,4 +259,74 @@ body {
 
     .btn-logout:hover {
         background-color: #c82333;
+    }*/
+    
+    /*
+    -------------------------------------------------------------
+    */
+    
+    
+        body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
     }
+
+    .navbar {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+        font-size: 24px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-item {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    .nav-link {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+        color: #ffc107;
+    }
+
+    .btn-settings,
+    .btn-logout {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-settings:hover,
+    .btn-logout:hover {
+        background-color: #0056b3;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 50px;
+        color: #333;
+    }
+    

@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.event.model.booking.Booking;
 import com.event.service.booking.BookingServiceImpl;
 import com.event.service.booking.IBookingService;
 
 /**
- * Servlet implementation class AddBookingServlet
+ * Servlet implementation class DeleteBookingServlet
  */
-@WebServlet("/AddBookingServlet")
-public class AddBookingServlet extends HttpServlet {
+@WebServlet("/DeleteBookingServlet")
+public class DeleteBookingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddBookingServlet() {
+    public DeleteBookingServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,23 +39,19 @@ public class AddBookingServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		response.setContentType("text/html");
 		
-		Booking booking = new Booking();
-				
-		booking.setUserId(request.getParameter("userId"));
-		booking.setEventId(request.getParameter("eventId"));
-		booking.setEventName(request.getParameter("eventName"));
-		booking.setEventDescription(request.getParameter("eventDescription"));
+		String bookingId = request.getParameter("bookingId");
 		
-		IBookingService iBookingService = new BookingServiceImpl();
-		iBookingService.addBooking(booking);
+		IBookingService ibookingservice = new BookingServiceImpl();
+		ibookingservice.deleteBooking(bookingId);
 		
-		request.setAttribute("booking", booking);
+		System.out.println("Booking id in deletebooking servlet: " + bookingId);
+		
+		request.setAttribute("bookingId", bookingId);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userAllBookings.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 
 }

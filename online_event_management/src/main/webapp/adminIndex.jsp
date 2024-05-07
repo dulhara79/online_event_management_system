@@ -29,7 +29,7 @@
 %>
 
 <input type="hidden" id="status" value="<%=status%>">
-
+<%-- 
 <nav class="navbar">
         <div class="container">
             <h1 class="logo">Admin <%= userName %></h1>
@@ -37,13 +37,58 @@
                 <li><a href="#">Home</a></li>
                 <li><a href="adminAllUser.jsp">Users</a></li>
                 <li><a href="#">Settings</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="allEvents.jsp">Events</a></li>
                 <li><a href="logout.jsp">Logout</a></li>
             </ul>
         </div>
     </nav>
-    
+   --%>  
+   
+  <nav class="navbar">
+    <div class="container">
+        <h1 class="logo">Admin <%= userName %></h1>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="adminAllUser.jsp">Users</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="allEvents.jsp">Events</a></li>
+            <li><a href="logout.jsp">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
 <h1>This is admin home page</h1>
-<a href="adminAddUser.jsp">Add user</a>
+
+<div class="sidebar">
+    <ul class="sidebar-nav">
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Analytics</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Settings</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <div class="container">
+        <h1>Welcome to Admin Dashboard</h1>
+        <h2>Add New User</h2>
+        <a href="adminAddUser.jsp">Add User</a>
+
+        <div class="events">
+            <h2>Upcoming Events</h2>
+            <!-- Event 1 -->
+            <div class="event">
+                <h3>Event 1</h3>
+                <p>Description of Event 1</p>
+            </div>
+            <!-- Event 2 -->
+            <div class="event">
+                <h3>Event 2</h3>
+                <p>Description of Event 2</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

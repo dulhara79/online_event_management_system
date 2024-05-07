@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.event.model.booking.Booking;
 import com.event.service.booking.BookingServiceImpl;
 import com.event.service.booking.IBookingService;
 
 /**
- * Servlet implementation class AddBookingServlet
+ * Servlet implementation class GetBookingServlet
  */
-@WebServlet("/AddBookingServlet")
-public class AddBookingServlet extends HttpServlet {
+@WebServlet("/GetBookingServlet")
+public class GetBookingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddBookingServlet() {
+    public GetBookingServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,20 +42,14 @@ public class AddBookingServlet extends HttpServlet {
 		
 		response.setContentType("text/html");
 		
-		Booking booking = new Booking();
-				
-		booking.setUserId(request.getParameter("userId"));
-		booking.setEventId(request.getParameter("eventId"));
-		booking.setEventName(request.getParameter("eventName"));
-		booking.setEventDescription(request.getParameter("eventDescription"));
+		String userId = request.getParameter("userId");
 		
-		IBookingService iBookingService = new BookingServiceImpl();
-		iBookingService.addBooking(booking);
+		IBookingService ibookingservice = new BookingServiceImpl();
+		ibookingservice.getBookingByUserId(userId);
 		
-		request.setAttribute("booking", booking);
+		request.setAttribute("userId", userId);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userAllBookings.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 
 }

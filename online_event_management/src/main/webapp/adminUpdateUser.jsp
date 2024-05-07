@@ -87,6 +87,9 @@
 <div class="container">
     <h1>Update</h1>
     <form action="<%= request.getContextPath() %>/UpdateUserServlet" method="post">
+    	
+    	<input type = "hidden" name= "userId" value = "<%= users.getUserId() %>">
+    
     	<div class="form-group">
             <label for="username">UserID</label>
             <input type="text" id="username" name="username" value="<%= users.getUserId()%>" disabled="disabled">
@@ -117,7 +120,8 @@
 
         <div class="form-group">
             <label for="address">Address</label>
-            <textarea id="address" name="address" value="<%= users.getAddress()%>" required></textarea>
+            <input type="text" id="address" name="address" value="<%= users.getAddress() %>" required>
+            <%-- <textarea id="address" name="address" value="<%= users.getAddress()%>" required></textarea> --%>
         </div>
 
         <div class="form-group">

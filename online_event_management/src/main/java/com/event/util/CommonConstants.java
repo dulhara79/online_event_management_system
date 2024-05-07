@@ -140,6 +140,10 @@ public class CommonConstants {
 	
 	public static final String QUERY_ID_GET_BOOKING_IDS = "get_booking_ids";
 	
+	public static final String QUERY_ID_GET_BOOKING_BY_USER_ID = "get_booking_by_user_id";
+	
+	public static final String QUERY_ID_DELETE_BOOKING_BY_BOOKING_ID = "delete_booking_by_booking_id";
+	
 	
 	
 }

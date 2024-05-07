@@ -162,8 +162,8 @@ public class UserServiceImpl implements IUserService{
 				if (connection != null) {
 					connection.close();
 				}
-				if (stmt != null) {
-					stmt.close();
+				if (preparedStatement != null) {
+					preparedStatement.close();
 				}
 
 			} catch (SQLException e) {
