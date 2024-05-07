@@ -58,12 +58,31 @@
     </div>
 </div>
  --%>
- 
+<%--  
  <div class="navbar">
     <h1 class="logo">Welcome, <%= userName %></h1>
     <ul class="nav-links">
-        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+        <li class="nav-item"><a class="nav-link" href="UserHome.jsp">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="userAllEvents.jsp">Events</a></li>
+        <li class="nav-item">
+            <form action="<%= request.getContextPath() %>/GetUserServlet" method="POST">
+               <input type="hidden" name="userId" value="<%= userID %>">
+               <input type="submit" class="btn-settings" value="Settings">
+            </form>
+        </li>
+        <li class="nav-item">
+            <form method="post" action="<%= logoutUrl %>">
+                <input class="btn-logout" type="submit" value="Logout">
+            </form>
+        </li>
+    </ul>
+</div>
+ --%>
+<div class="navbar">
+    <h1 class="logo">Welcome, <%= userName %></h1>
+    <ul class="nav-links">
+        <li class="nav-item"><a class="nav-link" href="UserHome.jsp">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="userAllEvents.jsp">Events</a></li>
         <li class="nav-item">
             <form action="<%= request.getContextPath() %>/GetUserServlet" method="POST">
                <input type="hidden" name="userId" value="<%= userID %>">
