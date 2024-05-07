@@ -36,7 +36,5 @@ public class QueryUtil extends CommonUtil {
 		return element.getTextContent().trim();
 
 	}
-	
-	
 
 }
