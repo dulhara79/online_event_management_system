@@ -11,10 +11,11 @@
 <link rel="stylesheet" type="text/css" href="css/adminLoginStyle.css">
 </head>
 <body>
-<h1>Admin Login</h1>
-<form action="<%= request.getContextPath() %>/AdminLoginServlet" method="post">
 
-	<label class="admin-form-lable" for="admin-user-name">User ID</label>
+<form action="<%= request.getContextPath() %>/AdminLoginServlet" method="post">
+	<h1 style="margin-left: 100px">Admin Login</h1><br>
+	
+	<label class="admin-form-lable" for="admin-user-name">Admin ID</label>
 	<input class="admin-form-input" type="text" name="adminId" placeholder="Enter user ID" required="required">
 	
 	<br>

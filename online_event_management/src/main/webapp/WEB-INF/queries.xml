@@ -72,7 +72,7 @@
 	
 	<query id="get_all_user">
 		<![CDATA[
-			SELECT * FROM user;
+			SELECT * FROM user ORDER BY userId ASC;
 		]]>
 	</query>
 	

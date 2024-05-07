@@ -1,7 +1,11 @@
+<%@page import="com.event.util.CommonUtil"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
-<% String logoutUrl = "logout.jsp"; %> 
+    
+<%@page import="com.event.model.User"%>
+<%@page import="com.event.service.user.UserServiceImpl"%>
+<%@page import="com.event.service.user.IUserService"%>
+<%@page import="java.util.ArrayList"%>
    
 <%
 	String userID = (String) session.getAttribute("userId");
@@ -16,7 +20,22 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<h1>Add User</h1>
+<h1>Register</h1>
+
+
+<%
+	
+		UserServiceImpl userserviceimpl = new UserServiceImpl();
+		ArrayList<String> userIds = userserviceimpl.getUserIds();
+		
+		String userId = CommonUtil.generateUserIDs(userIds);
+
+%>
+
+
+
+
+
 
 <%-- <% 
 		String status = (String) session.getAttribute("status"); 
@@ -32,7 +51,7 @@
 
 <input type="hidden" id="status" value="<%=status%>"> --%>
 
-<form class="admin-add-form" action="<%= request.getContextPath() %>/UserRegisterServlet" method = "post">
+<%-- <form class="admin-add-form" action="<%= request.getContextPath() %>/UserRegisterServlet" method = "post">
 	<label class="admin-form-lable" for="admin-user-name">Username</label>
 	<input class="admin-form-input" type="text" name="username" placeholder="Enter username" required="required">
 	
@@ -79,7 +98,62 @@
 	<input class="admin-form-submit-button" type="submit" name="submit" value="Register">
 
 
-</form>
+</form> --%>
+
+<div class="container">
+    <form action="<%= request.getContextPath() %>/UserRegisterServlet" method="post">
+    	<div class="form-group">
+            <label for="username">UserID</label>
+            <input type="text" id="username" name="username" value="<%= userId %>" disabled="disabled">
+        </div>
+        
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="firstname">First name</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Enter First name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Enter Last name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label><br>
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female" required>
+            <label for="female">Female</label>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" placeholder="Enter Address" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="mobileno">Phone number</label>
+            <input type="text" id="mobileno" name="mobileno" placeholder="Enter Mobile Number" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+        </div>
+
+        <button type="submit" class="btn">Add User Details</button>
+    </form>
+</div>
+
 
 </body>
 </html>

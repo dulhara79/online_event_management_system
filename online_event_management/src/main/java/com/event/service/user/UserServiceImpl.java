@@ -69,7 +69,7 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public void addUser(User user) {
 		
-		String studentId = CommonUtil.generateUserIDs(getUserIds());
+		String userId = CommonUtil.generateUserIDs(getUserIds());
 		
 		try {
 			
@@ -78,7 +78,7 @@ public class UserServiceImpl implements IUserService{
 			preparedStatement = connection.prepareStatement(QueryUtil.queryById(CommonConstants.QUERY_ID_INSERT_USER));
 			connection.setAutoCommit(false);
 			
-			user.setUserId(studentId);
+			user.setUserId(userId);
 			
 			preparedStatement.setString(CommonConstants.COLUMN_INDEX_ONE, user.getUserId());
 			preparedStatement.setString(CommonConstants.COLUMN_INDEX_TWO, user.getUserName());

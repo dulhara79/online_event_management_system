@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>Add User</h1>
-
+<%-- 
 <form class="admin-add-form" action="<%= request.getContextPath() %>/AddUserServlet" method = "post">
 	<label class="admin-form-lable" for="admin-user-name">Username</label>
 	<input class="admin-form-input" type="text" name="username" placeholder="Enter username" required="required">
@@ -58,6 +58,57 @@
 
 
 </form>
+ --%>
+ 
+<div class="container">
+    <h1>Add User</h1>
+    <form action="<%= request.getContextPath() %>/AddUserServlet" method="post">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter username" required>
+        </div>
+
+        <div class="form-group">
+            <label for="firstname">First name</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Enter First name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last name</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Enter Last name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label><br>
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female" required>
+            <label for="female">Female</label>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" placeholder="Enter Address" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="mobileno">Phone number</label>
+            <input type="text" id="mobileno" name="mobileno" placeholder="Enter Mobile Number" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+        </div>
+
+        <button type="submit" class="btn">Add User Details</button>
+    </form>
+</div>
 
 </body>
 </html>
