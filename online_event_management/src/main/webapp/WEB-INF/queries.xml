@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <queries>
-	
+
+		<!-- start admin table queries -->
+		
 	   <query id="create_admin_table">
     	<![CDATA[
    		CREATE TABLE admin (
@@ -11,9 +13,6 @@
    	 );  
     	]]>
 	</query>
-
-	
-
 
 
 	<query id="get_user_by_id">
@@ -32,11 +31,11 @@
 			WHERE adminId = ?;
 		]]>
 	</query>
+	
+	<!-- End admin table queries -->
 
 	
-
-	
-	<!-- create user table -->
+	<!-- start user table queries -->
 
 	<query id="create_user_table">
 		<![CDATA[
@@ -84,6 +83,7 @@
 			WHERE userId = ?;
 		]]>
 	</query>
+
 	
 	<query id="update_user_by_id">
 		<![CDATA[
@@ -92,6 +92,7 @@
 			WHERE userId = ?;
 		]]>
 	</query>
+
 	
 	<query id="delete_user_by_id">
 		<![CDATA[
@@ -100,51 +101,63 @@
 		]]>
 	</query> 
 	
+	<!-- End user table queries -->
 	
-
-
-
-
+	
+	<!-- start booking table queries -->
 
 	<query id="create_booking_table">
-
 		<![CDATA[
 		CREATE TABLE booking
 		(
 			booking_id varchar(10) PRIMARY KEY,
-			user_name varchar(25) NOT NULL,
-			event_name varchar(25) NOT NULL,
-			payment_id varchar(20) NOT NULL,
-			service_name varchar(25) NOT NULL,
+			userId varchar(25) NOT NULL,
+			eventId varchar(25) NOT NULL,
+			eventName varchar(25) NOT NULL,
 			event_description varchar(100)
 		);	
 		]]>
 	</query>
 	
+	
 	<query id="insert_booking">
 		<![CDATA[
-		INSERT INTO booking(booking_id, user_name, event_name, payment_id, service_name, event_description)
-		VALUES(?, ?, ?, ?, ?, ?);
+		INSERT INTO booking(booking_id, userId, eventId,eventName, event_description)
+		VALUES(?, ?, ?, ?, ?);
 		]]>
 	</query>
+	
 	
 	<query id="get_booking_ids">
 		<![CDATA[
 		SELECT booking_id
 		FROM booking;
-		
 		]]>
 	</query>
 	
-	<query id=" ">
+	
+	<query id="get_booking_by_user_id">
 		<![CDATA[
-		
+			SELECT *
+			FROM booking
+			WHERE userId = ?
+			ORDER BY booking_id ASC;
 		]]>
 	</query>
 	
-	<query id=" ">
-
-
+	<query id="delete_booking_by_booking_id">
+		<![CDATA[
+			DELETE FROM booking
+			WHERE booking_id = ?;
+		]]>
+	</query>
+	
+	<!-- End booking table queries -->
+	
+	
+	<!-- start event table queries -->
+	
+	<query id="create_event_table">
 		<![CDATA[
 			CREATE TABLE events(
 				eventId varchar(10) NOT NULL,
