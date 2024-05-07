@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.event.model.booking.booking;
+import com.event.model.booking.Booking;
 import com.event.service.booking.BookingServiceImpl;
 import com.event.service.booking.IBookingService;
 
@@ -40,21 +40,21 @@ public class AddBookingServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setContentType("text/html");
 		
-		booking booking = new booking();
-		
-		booking.setUser_name(request.getParameter("UserName"));
-		booking.setEvent_name(request.getParameter("EventName"));
-		booking.setPayment_id(request.getParameter("PaymentID"));
-		booking.setService_name(request.getParameter("ServiceName"));
-		booking.setEvent_description(request.getParameter("EventDescription"));
+		Booking booking = new Booking();
+				
+		booking.setUserId(request.getParameter("userId"));
+		booking.setEventId(request.getParameter("eventId"));
+		booking.setEventName(request.getParameter("eventName"));
+		booking.setEventDescription(request.getParameter("eventDescription"));
 		
 		IBookingService iBookingService = new BookingServiceImpl();
 		iBookingService.addBooking(booking);
 		
-		request.setAttribute("Booking", booking);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/allBookings.jsp");
+		request.setAttribute("booking", booking);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userAllBookings.jsp");
 		dispatcher.forward(request, response);
 		
 	}
