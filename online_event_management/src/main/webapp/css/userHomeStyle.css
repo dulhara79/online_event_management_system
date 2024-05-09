@@ -330,3 +330,41 @@ body {
         color: #333;
     }
     
+    /* Main Styles */
+main {
+    padding: 2rem;
+    text-align: center;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+.event-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1rem;
+}
+
+.event {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #3498db;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
