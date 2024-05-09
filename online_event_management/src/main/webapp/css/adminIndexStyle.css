@@ -13,7 +13,6 @@ body {
 }
 
 .header {
-	background-image: url('cover-photo.jpg');
 	background-size: cover;
 	background-position: center;
 	height: 200px;
@@ -84,6 +83,12 @@ label {
 .sidebar-nav li a:hover {
 	background-color: #555;
 }
+
+.cover-img {
+	width: 100%;
+    height: 20rem;
+    object-fit: cover;
+ }
 
 .body-content {
 	-webkit-flex: 3;
