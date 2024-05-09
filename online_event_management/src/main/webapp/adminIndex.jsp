@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<% String logoutUrl = "logout.jsp"; %>
+<%
+String logoutUrl = "logout.jsp";
+%>
 
 <%
-	String userID = (String) session.getAttribute("adminId");
- 	String userName = (String) session.getAttribute("userName");
+String userID = (String) session.getAttribute("adminId");
+String userName = (String) session.getAttribute("userName");
 %>
 
 <!DOCTYPE html>
@@ -25,7 +27,7 @@
 
 <style>
 body {
-	/* background-color:#f2f6fc; */
+	background-color:#f2f6fc;
 	color: #69707a;
 }
 
@@ -48,17 +50,16 @@ label {
 
 </head>
 <body>
-	<% 
-		String status = (String) session.getAttribute("status"); 
-	
-		if(status != null && status.equals("success")){
-			
-			request.getSession().removeAttribute("status");
-		} else {
-			response.sendRedirect("adminLogin.jsp");
-		}
-	
-%>
+	<%
+	String status = (String) session.getAttribute("status");
+
+	if (status != null && status.equals("success")) {
+
+		request.getSession().removeAttribute("status");
+	} else {
+		response.sendRedirect("adminLogin.jsp");
+	}
+	%>
 
 	<input type="hidden" id="status" value="<%=status%>">
 
@@ -77,8 +78,8 @@ label {
 					id="navbar1">
 
 					<ul class="navbar-nav mb-2 mb-lg-0">
-						<li class="nav-item"><span class="navbar-text" style="font-weight: bold;">Welcome!
-								<%= userName %></span></li>
+						<li class="nav-item"><span class="navbar-text"
+							style="font-weight: bold;">Welcome! <%=userName%></span></li>
 					</ul>
 
 					<ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
@@ -90,7 +91,7 @@ label {
 						<li class="nav-item"><a class="nav-link" href="AboutUs.jsp">About
 								us</a></li>
 						<li class="nav-item">
-							<form method="post" action="<%= logoutUrl %>"
+							<form method="post" action="<%=logoutUrl%>"
 								class="d-flex align-items-center">
 								<input class="btn btn-outline-primary" type="submit"
 									value="Logout">
@@ -122,29 +123,29 @@ label {
 				</ul>
 			</div>
 		</div>
+		<!-- <div class="p-5 cover-img">
+			<img alt="cover image" src="img/adminImg.jpeg">
+		</div> -->
 		<div class="body-content">
+			<div class="event-list event-list p-5">
+				<img class="cover-img" alt="cover image" src="img/adminImg.jpeg">
+			</div>
 			<div class="event-list">
 				<!-- Here you can dynamically generate and display upcoming events -->
 				<div class="event">
-					<h3>Event Title</h3>
-					<p>Date: January 1, 2025</p>
-					<p>Location: Event Venue</p>
-					<p>Description: Lorem ipsum dolor sit amet, consectetur
-						adipiscing elit.</p>
+					<h3>User</h3>
+					<p>Lorem ipsum dolor</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</div>
 				<div class="event">
-					<h3>Event Title</h3>
-					<p>Date: January 1, 2025</p>
-					<p>Location: Event Venue</p>
-					<p>Description: Lorem ipsum dolor sit amet, consectetur
-						adipiscing elit.</p>
+					<h3>Company</h3>
+					<p>Lorem ipsum dolor</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</div>
 				<div class="event">
-					<h3>Event Title</h3>
-					<p>Date: January 1, 2025</p>
-					<p>Location: Event Venue</p>
-					<p>Description: Lorem ipsum dolor sit amet, consectetur
-						adipiscing elit.</p>
+					<h3>Event</h3>
+					<p>Lorem ipsum dolor</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</div>
 				<!-- Add more events as needed -->
 			</div>
