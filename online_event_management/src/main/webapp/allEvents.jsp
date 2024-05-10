@@ -37,10 +37,10 @@
     th, td {
         padding: 8px;
         text-align: left;
-        border-bottom: 3px solid #ddd;
+        border-bottom: 1px solid #ae51f0;
     }
     th {
-        background-color: #4c90af;
+        background-color: #8327c4;
         color: white;
     }
     tr:nth-child(even) {
@@ -53,7 +53,7 @@
         display: inline-block; /* Form elements inline */
     }
     input[type="submit"] {
-        background-color: #071ef0; /* Red color */
+        background-color: #9928d1; 
         color: white;
         border: none;
         padding: 5px 10px;
@@ -66,12 +66,12 @@
         border-radius: 3px;
     }
     input[type="submit"]:hover {
-        background-color: #d32f2f; /* Darker red on hover */
+        background-color: #b778e3;
     }
     
     /* Style for Add event button */
     #add-event-btn {
-        background-color: #4CAF50; /* Green color */
+        background-color: #733fd4;
         border: none;
         color: white;
         padding: 8px 20px;
