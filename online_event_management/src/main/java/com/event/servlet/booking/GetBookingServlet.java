@@ -1,4 +1,4 @@
-package com.event.servlet.admin;
+package com.event.servlet.booking;
 
 import java.io.IOException;
 
@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.event.model.User;
-import com.event.service.user.IUserService;
-import com.event.service.user.UserServiceImpl;
+import com.event.service.booking.BookingServiceImpl;
+import com.event.service.booking.IBookingService;
 
 /**
- * Servlet implementation class UpdateUserServlet
+ * Servlet implementation class GetBookingServlet
  */
-@WebServlet("/UpdateUserServlet")
-public class UpdateUserServlet extends HttpServlet {
+@WebServlet("/GetBookingServlet")
+public class GetBookingServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateUserServlet() {
+    public GetBookingServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,29 +40,15 @@ public class UpdateUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		response.setContentType("txt/html");
-		
-		User user = new User();
+		response.setContentType("text/html");
 		
 		String userId = request.getParameter("userId");
 		
-		user.setUserId(userId);
-		user.setUserName(request.getParameter("username"));
-		user.setFirstName(request.getParameter("firstname"));
-		user.setLastName(request.getParameter("lastname"));
-		user.setGender(request.getParameter("gender"));
-		user.setAddress(request.getParameter("address"));
-		user.setPhoneNo(request.getParameter("mobileno"));
-		user.setEmail(request.getParameter("email"));
-		user.setPassword(request.getParameter("password"));
+		IBookingService ibookingservice = new BookingServiceImpl();
+		ibookingservice.getBookingByUserId(userId);
 		
-		IUserService iuserservice = new UserServiceImpl();
-		iuserservice.updateUser(userId, user);
-		
-		System.out.println("Admin update servlet user id: " + userId);
-		
-		request.setAttribute("user", user);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminAllUser.jsp");
+		request.setAttribute("userId", userId);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userAllBookings.jsp");
 		dispatcher.forward(request, response);
 	}
 

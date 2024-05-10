@@ -20,11 +20,13 @@
 	
 		IUserService iuserservice = new UserServiceImpl();
 		ArrayList<User> userList = iuserservice.getUserById(userId);
-	%>
+%>
 	
 	<%
 		for(User users: userList) {
 	 %>
+	
+<%-- 
 	<form class="admin-add-form" action="<%= request.getContextPath() %>/UpdateUserServlet" method = "post">
 	
 	<input type = "hidden" name= "userId" value = "<%= users.getUserId() %>">
@@ -79,7 +81,67 @@
 	
 	<input class="admin-form-submit-button" type="submit" name="submit" value="Update user Details">
 	
-	</form>
+	</form> 
+--%>
+
+<div class="container">
+    <h1>Update</h1>
+    <form action="<%= request.getContextPath() %>/UpdateUserServlet" method="post">
+    	
+    	<input type = "hidden" name= "userId" value = "<%= users.getUserId() %>">
+    
+    	<div class="form-group">
+            <label for="username">UserID</label>
+            <input type="text" id="username" name="username" value="<%= users.getUserId()%>" disabled="disabled">
+        </div>
+    
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" value="<%= users.getUserName() %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="firstname">First name</label>
+            <input type="text" id="firstname" name="firstname" value="<%= users.getFirstName() %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Last name</label>
+            <input type="text" id="lastname" name="lastname" value="<%= users.getLastName() %>" required>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label><br>
+            <input type="radio" id="male" name="gender" value="Male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="Female" required>
+            <label for="female">Female</label>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" value="<%= users.getAddress() %>" required>
+            <%-- <textarea id="address" name="address" value="<%= users.getAddress()%>" required></textarea> --%>
+        </div>
+
+        <div class="form-group">
+            <label for="mobileno">Phone number</label>
+            <input type="text" id="mobileno" name="mobileno" value="<%= users.getPhoneNo()%>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="<%= users.getEmail() %>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" value="<%= users.getPassword() %>" required>
+        </div>
+
+        <button type="submit" class="btn">Update Details</button>
+    </form>
+</div>
 	 <%
 		}
 	 %>

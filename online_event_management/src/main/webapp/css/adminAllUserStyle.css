@@ -1,6 +1,6 @@
 @charset "ISO-8859-1";
 /* Table Styles */
-table {
+/*table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -26,18 +26,18 @@ tbody tr:nth-child(even) {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust as needed */
-}
+    height: 100vh;  Adjust as needed 
+}*/
 
 /* Table Styles */
-table {
+/*table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-}
+}*/
 
 /* Button Styles */
-input[type="submit"] {
+/*input[type="submit"] {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -51,9 +51,9 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
-
+*/
 /* Responsive Table */
-@media screen and (max-width: 600px) {
+/*@media screen and (max-width: 600px) {
     table {
         border: 0;
     }
@@ -72,4 +72,71 @@ input[type="submit"]:hover {
         padding: 10px 15px;
         text-align: left;
     }
-}
+}*/
+
+/*
+--------------------------------------------
+*/
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    
+    .container {
+        /*max-width: 500px;*/
+        margin: 50px auto;
+        padding: 30px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    tr:hover {
+        background-color: #f2f2f2;
+    }
+
+    .edit-btn, .delete-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .edit-btn {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    .delete-btn {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+    .edit-btn:hover, .delete-btn:hover {
+        background-color: #218838;
+    }
+    
+    .header {
+		text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+	}
