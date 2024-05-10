@@ -48,7 +48,7 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-image: url('img/img23.jpg');
+        background-image: url('img/img52.jpg');
         background-size: cover;
         background-attachment: fixed; 
     }
@@ -56,7 +56,7 @@
         max-width: 500px;
         margin: 20px auto;
         padding: 20px;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.9);
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
@@ -74,16 +74,17 @@
     }
     input[type="submit"] {
         width: 100%;
-        background-color: #0ec22f;
+        background-color: #942cde;
         color: white;
         padding: 10px 20px;
         margin: 8px 0;
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        transition: background-color 0.3s ease;
     }
     input[type="submit"]:hover {
-        background-color: #45a049;
+        background-color: #be6ee6;
     }
 </style>
 
