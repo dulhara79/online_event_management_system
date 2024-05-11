@@ -6,6 +6,15 @@
 <%@ page import = "com.event.service.event.EventServiceImpl" %>
 <%@ page import = "java.util.ArrayList" %>
 
+<%
+String logoutUrl = "logout.jsp";
+%>
+
+<%
+String userID = (String) session.getAttribute("coodinatorId");
+String userName = (String) session.getAttribute("coordinatorName");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +26,32 @@
 </head>
 <body>
 
-<h2>View Public Events</h2>
+ <header>
+	  <!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-white">
+			<div class="container-fluid">
+				
+				<div class="collapse navbar-collapse justify-content-between" id="navbar1">
+					
+					
+					
+					<ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+						<%-- 
+						<li class="nav-item active"><a class="nav-link" aria-current="page" href="<%=index%>">Home</a></li>
+						 --%>
+						
+						<li class="nav-item"><a class="nav-link" href="webSitehomePage.jsp">Home</a></li>
+						<li class="nav-item" >
+							<form method="post" action="<%= logoutUrl %>" class="d-flex align-items-center">
+	            				<input class="btn btn-outline-primary" type="submit" value="Logout">
+	          				</form>
+          				</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	<!-- Navbar -->
+</header>
 
  <style>
 
@@ -163,6 +197,72 @@
         transform: scale(1.1);
     }
     
+  
+	header {
+	    background-color: #6f239e; 
+	    color: #fff; 
+	    padding: 15px; 
+	}
+	
+	.navbar-nav {
+	    list-style: none; 
+	    padding: 0; 
+	    margin: 0;
+	    text-align: right; 
+	}
+	
+	.nav-item {
+	    display: inline-block; 
+	    margin-right: 20px; 
+	}
+	
+	.navbar-text {
+		list-style: none; 
+	    padding: 0; 
+	    margin: 0;
+	    text-align: left;
+	}
+	
+	.nav-link {
+	    color: #fff; 
+	    text-decoration: none; 
+	    font-weight: bold; 
+	}
+	
+	.nav-link:hover {
+	    color: #cfa1f0; 
+	}
+	
+	.logout-btn {
+	    background-color: #fff; 
+	    color: #5c1f87; 
+	    border: none; 
+	    padding: 8px 20px; 
+	    border-radius: 5px; 
+	    cursor: pointer;
+	    transition: background-color 0.3s, color 0.3s; 
+	}
+	
+	.logout-btn:hover {
+	    background-color: #cfa1f0; 
+	    color: #fff; 
+	}
+
+    footer {
+	    background-color: #5c1f87; 
+	    color: #fff; 
+	    padding: 10px; 
+	    text-align: center; 
+	    bottom: 0; 
+	    width: 100%; 
+	}
+
+
+	footer p {
+	    margin: 0; 
+	    font-size: 14px; 
+	}
+    
 </style> 
 
 
@@ -229,6 +329,10 @@
 	
 	
 </div>
+
+<footer>
+        <p>&copy; 2025 Event Management System. All rights reserved.</p>
+ </footer>
 
 </body>
 </html> 

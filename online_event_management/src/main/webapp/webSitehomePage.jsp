@@ -32,7 +32,7 @@
 					<ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
 						<li class="nav-item"> <a class="nav-link" href="userLogin.jsp">LogIn</a></li>
 						<li class="nav-item"> <a class="nav-link" href="userRegister.jsp">Register</a></li>				
-						<li class="nav-item"><a class="nav-link" href="allEvents.jsp">Events</a></li>
+						<li class="nav-item"><a class="nav-link" href="view.jsp">Events</a></li>
 						<li class="nav-item"> <a class="nav-link" href="userProfile.jsp">Profile</a></li>
 						<li class="nav-item"><a class="nav-link" href="AboutUs.jsp">About us</a></li>				
 					</ul>
