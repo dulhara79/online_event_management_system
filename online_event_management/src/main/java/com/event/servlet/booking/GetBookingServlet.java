@@ -43,11 +43,16 @@ public class GetBookingServlet extends HttpServlet {
 		response.setContentType("text/html");
 		
 		String userId = request.getParameter("userId");
+		String bookingId = request.getParameter("bookingId");
+		
 		
 		IBookingService ibookingservice = new BookingServiceImpl();
 		ibookingservice.getBookingByUserId(userId);
 		
+		
 		request.setAttribute("userId", userId);
+		request.setAttribute("bookingId", bookingId);
+		
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/userAllBookings.jsp");
 		dispatcher.forward(request, response);
 	}
