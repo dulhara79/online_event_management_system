@@ -1,23 +1,28 @@
 package com.event.servlet.admin;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.event.service.admin.AdminServiceImpl;
+import com.event.service.admin.IAdminService;
+
 /**
- * Servlet implementation class AddCompanyServlet
+ * Servlet implementation class DeleteAdminServlet
  */
-@WebServlet("/AddCompanyServlet")
-public class AddCompanyServlet extends HttpServlet {
+@WebServlet("/DeleteAdminServlet")
+public class DeleteAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddCompanyServlet() {
+    public DeleteAdminServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,8 +39,17 @@ public class AddCompanyServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		response.setContentType("text/html");
+		
+		String adminId = request.getParameter("adminId");
+		
+		IAdminService istudentservice = new AdminServiceImpl();
+		istudentservice.deleteAdmin(adminId);
+		
+		request.setAttribute("adminId", adminId);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/adminAllAdmins.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

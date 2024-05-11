@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<%@page import="com.event.model.User"%>
-<%@page import="com.event.service.user.UserServiceImpl"%>
-<%@page import="com.event.service.user.IUserService"%>
+<%@page import="com.event.model.admin.Admin"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="com.event.service.admin.AdminServiceImpl"%>
+<%@page import="com.event.service.admin.IAdminService"%>
 
 <%
 String logoutUrl = "logout.jsp";
@@ -19,7 +19,8 @@ String userName = (String) session.getAttribute("userName");
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin-Update User</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <link
@@ -52,6 +53,7 @@ label {
 }
 </style>
 
+<title>Admin-Update admin</title>
 </head>
 <body>
 
@@ -65,17 +67,17 @@ label {
 	%>
 
 	<input type="hidden" id="status" value="<%=status%>">
-	
+
 <%
 	
-		String userId = (String) request.getAttribute("userId");
+		String adminId = (String) request.getAttribute("adminId");
 	
-		IUserService iuserservice = new UserServiceImpl();
-		ArrayList<User> userList = iuserservice.getUserById(userId);
+		IAdminService iadminservice = new AdminServiceImpl();
+		ArrayList<Admin> adminList = iadminservice.getAdminById(adminId);
 %>
 	
 	<%
-		for(User users: userList) {
+		for(Admin admin: adminList) {
 	 %>
 
 <header>
@@ -121,57 +123,45 @@ label {
 
 <div class="container">
     <h1>Update</h1>
-    <form action="<%= request.getContextPath() %>/UpdateUserServlet" method="post">
+    <form action="<%= request.getContextPath() %>/UpdateAdminServlet" method="post">
     	
-    	<input type = "hidden" name= "userId" value = "<%= users.getUserId() %>">
+    	<input type = "hidden" name= "adminId" value = "<%= admin.getAdminId()%>">
     
     	<div class="form-group">
-            <label for="username">UserID</label>
-            <input type="text" id="username" name="username" value="<%= users.getUserId()%>" disabled="disabled">
+            <label for="username">Admin ID</label>
+            <input type="text" id="username" name="adminId" value="<%= admin.getAdminId()%>" disabled="disabled">
         </div>
     
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" value="<%= users.getUserName() %>" required>
+            <input type="text" id="username" name="username" value="<%= admin.getUserName() %>" required>
         </div>
 
         <div class="form-group">
-            <label for="firstname">First name</label>
-            <input type="text" id="firstname" name="firstname" value="<%= users.getFirstName() %>" required>
+            <label for="firstname">Name</label>
+            <input type="text" id="firstname" name="name" value="<%= admin.getName() %>" required>
         </div>
-
-        <div class="form-group">
-            <label for="lastname">Last name</label>
-            <input type="text" id="lastname" name="lastname" value="<%= users.getLastName() %>" required>
-        </div>
-
-        <div class="form-group">
-            <label>Gender</label><br>
-            <input type="radio" id="male" name="gender" value="Male" required>
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="Female" required>
-            <label for="female">Female</label>
-        </div>
+        
 
         <div class="form-group">
             <label for="address">Address</label>
-            <input type="text" id="address" name="address" value="<%= users.getAddress() %>" required>
+            <input type="text" id="address" name="address" value="<%= admin.getAddress() %>" required>
             <%-- <textarea id="address" name="address" value="<%= users.getAddress()%>" required></textarea> --%>
         </div>
 
         <div class="form-group">
             <label for="mobileno">Phone number</label>
-            <input type="text" id="mobileno" name="mobileno" value="<%= users.getPhoneNo()%>" required>
+            <input type="text" id="mobileno" name="mobileno" value="<%= admin.getPhoneNum() %>" required>
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" value="<%= users.getEmail() %>" required>
+            <input type="email" id="email" name="email" value="<%= admin.getEmail() %>" required>
         </div>
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" value="<%= users.getPassword() %>" required>
+            <input type="password" id="password" name="password" value="<%= admin.getPassword() %>" required>
         </div>
 
         <button type="submit" class="btn">Update Details</button>
@@ -180,5 +170,6 @@ label {
 	 <%
 		}
 	 %>
+
 </body>
 </html>

@@ -31,6 +31,28 @@ String userName = (String) session.getAttribute("userName");
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	
+	<style>
+body {
+	background-color:#f2f6fc;
+	color: #69707a;
+}
+
+.container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.card-img-top {
+	height: 300px;
+	object-fit: cover;
+}
+
+label {
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+</style>
+	
 </head>
 <body>
 
@@ -95,7 +117,7 @@ String userName = (String) session.getAttribute("userName");
 </table>
  --%>
 
-	<header>
+<header>
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-white">
 			<div class="container-fluid">

@@ -1,5 +1,6 @@
 package com.event.util;
 
+
 /**
  * 
  */
@@ -123,7 +124,18 @@ public class CommonConstants {
 	/** create admin table in queries.xml */
 	public static final String QUERY_ID_CREATE_ADMIN_TABLE = "create_admin_table";
 	
+	public static final String QUERY_ID_INSERT_ADMIN = "insert_admin";
+	
+	public static final String QUERY_ID_GET_ALL_ADMINS = "get_all_admin";
+	
 	public static final String QUERY_ID_GET_ADMIN_BY_ID = "get_admin_by_id";
+	
+	public static final String QUERY_ID_GET_ADMIN_IDS = "get_admin_ids";
+	
+	public static final String QUERY_ID_UPDATE_ADMIN_BY_ID = "update_admin_by_id";
+	
+	public static final String QUERY_ID_DELETE_ADMIN_BY_ID = "delete_admin_by_id";
+	
 	
 	
 	
