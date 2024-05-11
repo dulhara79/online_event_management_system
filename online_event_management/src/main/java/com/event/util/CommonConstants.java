@@ -129,6 +129,26 @@ public class CommonConstants {
 	
 	
 	/*
+	 * Coordinator constants
+	 */
+
+	/** Constant for Coordinator id prefix */
+	public static final String COORDINATOR_ID_PREFIX = "CD0000";
+
+	/** create Coordinator table in queries.xml */
+	public static final String QUERY_ID_CREATE_COORDINATOR_TABLE = "create_coordinator_table";
+	
+	public static final String QUERY_ID_INSERT_COORDINATOR = "insert_coordinator";
+	
+	public static final String QUERY_ID_GET_COORDINATOR_IDS = "get_coordinator_ids";
+	
+	public static final String QUERY_ID_GET_COORDINATOR_BY_ID = "get_coordinator_by_id";
+	
+	public static final String QUERY_ID_GET_ALL_COORDINATORS = "get_coordinator_all_events";
+	
+	
+	
+	/*
 	 * Booking constants
 	 */
 	

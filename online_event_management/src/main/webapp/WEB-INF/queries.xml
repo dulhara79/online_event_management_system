@@ -32,6 +32,43 @@
 		]]>
 	</query>
 	
+	<!-- coordinator -->
+	
+	<query id="create_coordinator_table">
+    	<![CDATA[
+   		CREATE TABLE coordinator (
+        coordinatorId varchar(10) PRIMARY KEY,
+        coordinatorName varchar(20) NOT NULL,
+        password varchar(20) NOT NULL
+   	 );  
+    	]]>
+	</query>
+	
+	<query id="get_coordinator_by_id">
+		<![CDATA[
+			SELECT *
+			FROM coordinator
+			WHERE coordinatorId = ?;
+		]]>
+	</query>
+<!-- 	
+	<query id="insert_coordinator">
+		<![CDATA[
+			INSERT INTO coordinator(coordinatorId, userName, password)
+			VALUES (CD0000, dew, 1234);
+		]]>
+	</query> -->
+	
+<!-- 	 
+	
+	
+	<query id="get_all_coordinator">
+		<![CDATA[
+			SELECT * FROM coordinator ORDER BY coordinatorId ASC;
+		]]>
+	</query>  -->
+	
+	
 	<!-- End admin table queries -->
 
 	
