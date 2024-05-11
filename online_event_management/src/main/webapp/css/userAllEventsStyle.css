@@ -1,57 +1,98 @@
 @charset "ISO-8859-1";
 
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f9f9f9;
-    }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    background-image: url('https://wallpapercave.com/wp/wp2848100.jpg');
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
 
-    h1 {
-        text-align: center;
-        margin-top: 30px;
-        margin-bottom: 20px;
-        color: #333;
-    }
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: white;
+    font-family: Comic Sans MS, cursive, sans-serif; /* Comic Sans font */
+    font-size: 46px; /* Bigger font size */
+    letter-spacing: 6px; /* Wide letters */
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); /* Shadow */
+}
 
-    .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-    }
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        background-color: #fff;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1); /* Fixed box-shadow syntax */
+    text-align: center; /* Fixed box-shadow syntax */
+}
 
-    th, td {
-        padding: 12px 15px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
+th, td {
+    padding: 15px 13px;
+    text-align: center; /* Fixed text-align center */
+    border-bottom: 1px solid #ddd;
+}
 
-    th {
-        background-color: #333;
-        color: #fff;
-    }
 
-    tr:hover {
-        background-color: #f5f5f5;
-    }
+th {
+    font-family: Comic Sans MS, cursive, sans-serif; /* Comic Sans font */
+    font-size: 20px;
+    background-image: linear-gradient(to bottom, black, white, #ff69b4, purple); /* Gradient background */
+    height: 45px;
+    color: black !important;
+}
 
-    .edit-btn {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
+th[background-image] {
+    color: black; /* Black text color for th with gradient background */
+}
 
-    .edit-btn:hover {
-        background-color: #0056b3;
-    }
+tr {
+    background-image: linear-gradient(to bottom, rgba(128, 0, 128, 0.5), rgba(255, 105, 180, 0.5)); /* Purple-pink transparent gradient */
+    height: 10px; /* Decreased row height */
+    font-family: Comic Sans MS, cursive, sans-serif; /* Comic Sans font */
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+.button-container {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center items horizontally */
+    margin-top: 20px; /* Add space above the buttons */
+    text-align: center; /* Center the buttons */
+}
+
+.button-container form {
+   margin-right: 50px; /* Add space between the buttons */
+    margin-bottom: 20px;
+}
+
+.edit-btn {
+    font-size: 16px;
+    background-color: #6b0f9c; /* Dark purple */
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: Comic Sans MS, cursive, sans-serif;
+}
+
+.edit-btn:hover {
+    background-color: #ff66c4; /* Pink color */
+}
