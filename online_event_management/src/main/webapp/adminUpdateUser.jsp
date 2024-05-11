@@ -6,14 +6,66 @@
 <%@page import="com.event.service.user.IUserService"%>
 <%@page import="java.util.ArrayList"%>
 
+<%
+String logoutUrl = "logout.jsp";
+%>
+
+<%
+String userID = (String) session.getAttribute("adminId");
+String userName = (String) session.getAttribute("userName");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin-Update User</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<style>
+body {
+	background-color:#f2f6fc;
+	color: #69707a;
+}
+
+.container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.card-img-top {
+	height: 300px;
+	object-fit: cover;
+}
+
+label {
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+</style>
+
 </head>
 <body>
+
+	<%
+	String status = (String) session.getAttribute("status");
+
+	if (status != null && status.equals("success")) {
+
+		request.getSession().removeAttribute("status");
+	}
+	%>
+
+	<input type="hidden" id="status" value="<%=status%>">
+	
 <%
 	
 		String userId = (String) request.getAttribute("userId");
@@ -25,64 +77,47 @@
 	<%
 		for(User users: userList) {
 	 %>
-	
-<%-- 
-	<form class="admin-add-form" action="<%= request.getContextPath() %>/UpdateUserServlet" method = "post">
-	
-	<input type = "hidden" name= "userId" value = "<%= users.getUserId() %>">
-	
-	<label class="admin-form-lable" for="admin-user-name">User ID</label>
-	<input type = "text" value = "<%= users.getUserId()%>" disabled="disabled">
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-name">Username</label>
-	<input class="admin-form-input" type="text" name="username" value="<%= users.getUserName() %>">
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-fname">First name</label>
-	<input class="admin-form-input" type="text" name="firstname" value="<%= users.getFirstName() %>">
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-lname">Last name</label>
-	<input class="admin-form-input" type="text" name="lastname" value="<%= users.getLastName() %>">
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-gender" name="gender" >Gender</label>
-	<input type="radio" id="gebder1" name="gender" value="Male">
-	<label for="gender1">Male</label>
-	<input type="radio" id="gender2" name="gender" value="Female">
-	<label for="age1">Female</label>
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-address">Address</label>
-	<textarea class="admin-user-address-area" rows="4" cols="20" name="address" value="<%= users.getAddress() %>" ></textarea>
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-mobile">Phone number</label>
-	<input class="admin-form-input" type="text" name="mobileno" value="<%= users.getPhoneNo() %>">
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-email">Email</label>
-	<input class="admin-form-input" type="email" name="email" value="<%= users.getEmail() %>">
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-password">Password</label>
-	<input class="admin-form-input" type="password" id="password" name="password" value="<%= users.getPassword() %>">
-	 
-	 <br>
-	
-	<input class="admin-form-submit-button" type="submit" name="submit" value="Update user Details">
-	
-	</form> 
---%>
+
+<header>
+		<!-- Navbar -->
+		<nav class="navbar navbar-expand-lg navbar-light bg-white">
+			<div class="container-fluid">
+				<button class="navbar-toggler" type="button"
+					data-mdb-toggle="collapse" data-mdb-target="#navbar1"
+					aria-controls="navbarExample01" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<i class="fas fa-bars"></i>
+				</button>
+
+				<div class="collapse navbar-collapse justify-content-between"
+					id="navbar1">
+
+					<ul class="navbar-nav mb-2 mb-lg-0">
+						<li class="nav-item"><span class="navbar-text"
+							style="font-weight: bold;">Welcome! <%=userName%></span></li>
+					</ul>
+
+					<ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+						<%-- 
+						<li class="nav-item active"><a class="nav-link" aria-current="page" href="<%=index%>">Home</a></li>
+						 --%>
+						<li class="nav-item"><a class="nav-link"
+							href="userProfile.jsp">Profile</a></li>
+						<li class="nav-item"><a class="nav-link" href="AboutUs.jsp">About
+								us</a></li>
+						<li class="nav-item">
+							<form method="post" action="<%=logoutUrl%>"
+								class="d-flex align-items-center">
+								<input class="btn btn-outline-primary" type="submit"
+									value="Logout">
+							</form>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- Navbar -->
+	</header>
 
 <div class="container">
     <h1>Update</h1>
