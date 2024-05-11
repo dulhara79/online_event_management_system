@@ -1,3 +1,6 @@
+<%@page import="com.event.util.CommonUtil"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.event.service.user.UserServiceImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
@@ -95,48 +98,79 @@
 </form>
  --%>
  
- <header>
-	  <!-- Navbar -->
+ 		<% 
+			String status = (String) session.getAttribute("status"); 
+		
+			if(status != null && status.equals("success")){
+				
+				request.getSession().removeAttribute("status");
+			}
+	
+		%>
+
+	<input type="hidden" id="status" value="<%=status%>">
+ 
+ <%
+	
+		UserServiceImpl userserviceimpl = new UserServiceImpl();
+		ArrayList<String> userIds = userserviceimpl.getUserIds();
+		
+		String userId = CommonUtil.generateUserIDs(userIds);
+
+%>
+ 
+<header>
+		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-white">
 			<div class="container-fluid">
-				<button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-				  data-mdb-target="#navbar1" aria-controls="navbarExample01" aria-expanded="false"
-				  aria-label="Toggle navigation">
-				  <i class="fas fa-bars"></i>
+				<button class="navbar-toggler" type="button"
+					data-mdb-toggle="collapse" data-mdb-target="#navbar1"
+					aria-controls="navbarExample01" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<i class="fas fa-bars"></i>
 				</button>
-				
-				<div class="collapse navbar-collapse justify-content-between" id="navbar1">
-					
+
+				<div class="collapse navbar-collapse justify-content-between"
+					id="navbar1">
+
 					<ul class="navbar-nav mb-2 mb-lg-0">
-					  <li class="nav-item"><span class="navbar-text">Welcome! <%= userName %></span></li>
+						<li class="nav-item"><span class="navbar-text"
+							style="font-weight: bold;">Welcome! <%=userName%></span></li>
 					</ul>
-					
+
 					<ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
 						<%-- 
 						<li class="nav-item active"><a class="nav-link" aria-current="page" href="<%=index%>">Home</a></li>
 						 --%>
-						<li class="nav-item"> <a class="nav-link" href="userProfile.jsp">Profile</a></li>
-						<li class="nav-item"><a class="nav-link" href="AboutUs.jsp">About us</a></li>
-						<li class="nav-item"><a class="nav-link" href="adminAllUser.jsp">Manage Users</a></li>
-						<li class="nav-item"><a class="nav-link" href="addCategory.jsp">Manage Category</a></li>
-						<li class="nav-item" >
-							<form method="post" action="<%= logoutUrl %>" class="d-flex align-items-center">
-	            				<input class="btn btn-outline-primary" type="submit" value="Logout">
-	          				</form>
-          				</li>
+						<li class="nav-item"><a class="nav-link"
+							href="userProfile.jsp">Profile</a></li>
+						<li class="nav-item"><a class="nav-link" href="AboutUs.jsp">About
+								us</a></li>
+						<li class="nav-item">
+							<form method="post" action="<%=logoutUrl%>"
+								class="d-flex align-items-center">
+								<input class="btn btn-outline-primary" type="submit"
+									value="Logout">
+							</form>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
-	<!-- Navbar -->
-</header>
+		<!-- Navbar -->
+	</header>
  
 <div class="container">
     <h1>Add User</h1>
     <div class="row">
     	<div class="col-8 offset-2">
 		   <form action="<%= request.getContextPath() %>/AddUserServlet" method="post">
-		       <div class="form-group">
+			  <div class="form-group">
+					<label for="username">UserID</label> 
+					<input type="text" id="username" name="userId" value="<%=userId%>" disabled="disabled">
+			   </div>
+			   
+			   <div class="form-group">
 		           <label for="exampleInputEmail1">Username</label>
 		           <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
 		       </div>
