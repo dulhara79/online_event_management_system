@@ -24,13 +24,27 @@ body {
     padding: 0;
 }
 
+body::before {
+	    content: "";
+	    position: fixed; 
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    background-image: url('img/img67.png');
+	    background-size: cover;
+	    background-attachment: fixed; 
+	    z-index: -1;
+	}
+
 form {
     max-width: 400px;
     margin: 50px auto;
-    background: linear-gradient(to bottom, #d3adf7, #b3b8f3);
+    /* background: linear-gradient(to bottom, #d3adf7, #b3b8f3); */
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.4)
 }
 
 h1 {
@@ -52,19 +66,22 @@ h1 {
     width: 90%;
     padding: 10px;
     margin-bottom: 20px;
+    background-color: #f4e9f7;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .coordinator-form-submit-button {
     width: 96%;
     padding: 10px;
     border: none;
-    background-color: #8525cf;
+    background-color: #2d0954;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    
 }
 
 .coordinator-form-submit-button:hover {
