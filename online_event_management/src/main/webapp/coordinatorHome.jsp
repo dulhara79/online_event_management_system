@@ -23,6 +23,7 @@ String userName = (String) session.getAttribute("coordinatorName");
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	
 </head>
 <body>
@@ -46,7 +47,7 @@ String userName = (String) session.getAttribute("coordinatorName");
 	<td><%= userName %></td>
 	</tr>
 	
- <header>
+<%--  <header>
 	  <!-- Navbar -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-white">
 			<div class="container-fluid">
@@ -63,11 +64,10 @@ String userName = (String) session.getAttribute("coordinatorName");
 					</ul>
 					
 					<ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-						<%-- 
+						
 						<li class="nav-item active"><a class="nav-link" aria-current="page" href="<%=index%>">Home</a></li>
-						 --%>
-						<li class="nav-item"> <a class="nav-link" href="coordinatorProfile.jsp">Profile</a></li>
-						<li class="nav-item"><a class="nav-link" href="view.jsp">Events</a></li>
+						
+						
 						<li class="nav-item">
 				            <form action="<%= request.getContextPath() %>/GetUserServlet" method="POST">
 				               <input type="hidden" name="userId" value="<%= userID %>">
@@ -85,7 +85,7 @@ String userName = (String) session.getAttribute("coordinatorName");
 		</nav>
 	<!-- Navbar -->
 </header>
-	
+	 --%>
 	<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,11 +98,18 @@ String userName = (String) session.getAttribute("coordinatorName");
   <header>
     <h1>Event Coordinator</h1>
     <nav>
+    	<form method="post" action="<%= logoutUrl %>" class="d-flex align-items-center">
+	           <input class="btn btn-outline-primary" type="submit" value="Logout">
+	    </form>
+		
       <ul>
         <li><a href="webSitehomePage.jsp">Home</a></li>
         <li><a href="view.jsp">Events</a></li>
-        <li><a href="#">About</a></li>
+        <li><a href="index.jsp">Add Events</a></li>
+        <li><a href="allEvents.jsp">Manage Events</a></li>
+        
       </ul>
+      
     </nav>
   </header>
 
@@ -123,77 +130,131 @@ String userName = (String) session.getAttribute("coordinatorName");
     </ul>
   </section>
 
-  <section class="about">
-    <h2>About Us</h2>
-    <p>We are a team of experienced event planners dedicated to making your event unforgettable. With our attention to detail and creative touch, we ensure every aspect of your event is meticulously planned and executed.</p>
-  </section>
+	<section class="about">
+	  <h2>About Us</h2>
+	  <p>Welcome to our Event Coordinator Page! We are a team of professional event coordinators dedicated to making your event a success. With years of experience in the industry, we have the expertise and creativity to bring your vision to life.</p>
+	  <p>Our mission is to provide exceptional service and attention to detail, ensuring that every aspect of your event is meticulously planned and executed. Whether you're hosting a wedding, corporate event, private party, or conference, we're here to help you every step of the way.</p>
+	  <p>From concept development to vendor coordination and on-site management, we handle all the details so you can relax and enjoy your event. Let us take the stress out of event planning and create an unforgettable experience for you and your guests.</p>
+	</section>
 
 <footer>
         <p>&copy; 2025 Event Management System. All rights reserved.</p>
  </footer>
 </body>
 </html>
+
+<style>
+
+body {
+	  font-family: Arial, sans-serif;
+	  margin: 0;
+	  padding: 0;
+	}
+
+	header {
+	  background-color: #5c1f87;
+	  color: #fff;
+	  padding: 60px 20px;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	}
 	
-	<style>
-	body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background-color: #5c1f87;
-  color: #fff;
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.banner {
-  background-color: #f2f2f2;
-  padding: 50px;
-  text-align: center;
-}
-
-.services {
-  padding: 50px;
-}
-
-.services ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.about {
-  background-color: #f2f2f2;
-  padding: 50px;
-  text-align: center;
-}
-
-footer {
-  background-color: #5c1f87;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
+	h1 {
+		font-family: 'Poppins', sans-serif;
+	}
 	
+	header form {
+  	   margin-right: 20px; 
+	}
+	
+	header form input[type="submit"] {
+	  background-color: #5c1f87;
+	  color: #fff;
+	  border: none;
+	  padding: 10px 20px;
+	  border-radius: 5px;
+	  cursor: pointer;
+	}
+	
+	header form input[type="submit"]:hover {
+	  background-color: #4a166d;
+	}
+	
+	nav {
+	    padding: 20px 30px;
+	    display: flex;
+	    justify-content: space-between; 
+	    align-items: center;
+		}
+	
+	nav form {
+	    margin-left: auto; 
+	}
+
+	nav input[type="submit"] {
+	   background-color: transparent; 
+	    border: none; 
+	    color: #fff; 
+	    font-size: 16px;
+	    cursor: pointer; 
+	    font-family: 'Poppins', sans-serif;
+	}
+	
+	nav input[type="submit"]:hover {
+	    text-decoration: underline; 
+	    background-color: #b796d6;
+	}
+
+	 nav ul {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	  font-family: 'Poppins', sans-serif;
+	} 
+
+	nav ul li {
+	  display: inline;
+	  margin-right: 20px;
+	}
+
+	nav ul li a {
+	  color: #fff;
+	  text-decoration: none;
+	}
+	
+	.banner {
+	  background-color: #e3e1e1;
+	  padding: 50px;
+	  text-align: center;
+	  font-family: 'Poppins', sans-serif;
+	}
+	
+	.services {
+	  padding: 50px;
+	  font-family: 'Poppins', sans-serif;
+	}
+	
+	.services ul {
+	  list-style-type: none;
+	  padding: 0;
+	}
+	
+	.about {
+	  background-color: #e3e1e1;
+	  padding: 50px;
+	  text-align: center;
+	  font-family: 'Poppins', sans-serif;
+	}
+	
+	footer {
+	  background-color: #5c1f87;
+	  color: #fff;
+	  text-align: center;
+	  padding: 20px;
+	}	
+
+</style>
 
 </body>
 </html>

@@ -47,6 +47,7 @@
     h1, h2 {
         color: #f2eded;
         text-align: center;
+        font-family: 'Poppins', sans-serif;
     }
     form {
         background-color: rgba(255, 255, 255, 0.9);
@@ -55,6 +56,7 @@
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
         width: 300px;
         margin: 20px auto;
+        
        
     }
     input[type="text"], input[type="submit"] {
@@ -63,6 +65,7 @@
         margin-bottom: 15px;
         border: 1px solid #ccc; 
         border-radius: 5px; 
+        font-family: 'Poppins', sans-serif;
     	
     }
     input[type="submit"] {
@@ -70,6 +73,7 @@
         color: #fff;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        font-family: 'Poppins', sans-serif;
     }
     input[type="submit"]:hover {
         background-color: #c78df0;

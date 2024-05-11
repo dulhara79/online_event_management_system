@@ -41,6 +41,7 @@ String userName = (String) session.getAttribute("coordinatorName");
 						 --%>
 						
 						<li class="nav-item"><a class="nav-link" href="webSitehomePage.jsp">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="coordinatorLogin.jsp">Coordinator Page</a></li>
 						<li class="nav-item" >
 							<form method="post" action="<%= logoutUrl %>" class="d-flex align-items-center">
 	            				<input class="btn btn-outline-primary" type="submit" value="Logout">
@@ -198,10 +199,12 @@ String userName = (String) session.getAttribute("coordinatorName");
     }
     
   
-	header {
+	 header {
+		
 	    background-color: #6f239e; 
 	    color: #fff; 
-	    padding: 15px; 
+	    padding: 30px; 
+	    z-index: 1000;
 	}
 	
 	.navbar-nav {
@@ -247,21 +250,21 @@ String userName = (String) session.getAttribute("coordinatorName");
 	    background-color: #cfa1f0; 
 	    color: #fff; 
 	}
-
-    footer {
+ 
+     footer {
 	    background-color: #5c1f87; 
 	    color: #fff; 
-	    padding: 10px; 
+	    padding: 15px; 
 	    text-align: center; 
 	    bottom: 0; 
-	    width: 100%; 
+	    z-index: 1000; 
 	}
 
 
 	footer p {
 	    margin: 0; 
 	    font-size: 14px; 
-	}
+	} 
     
 </style> 
 

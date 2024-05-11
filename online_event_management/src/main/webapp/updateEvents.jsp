@@ -48,7 +48,7 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-image: url('img/img52.jpg');
+        background-image: url('img/img55.jpg');
         background-size: cover;
         background-attachment: fixed; 
     }
