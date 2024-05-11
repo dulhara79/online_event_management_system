@@ -2,9 +2,11 @@
 
     body {
         font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f9f9f9;
+    margin: 40px 0 30px 0;
+    padding: 0;
+    background-image: url('https://cdn4.vectorstock.com/i/1000x1000/65/73/black-background-with-gold-stars-vector-7316573.jpg');
+    background-size: cover; /* Adjusts the background image size to cover the entire body */
+    background-position: center;
     }
 
     h1 {
@@ -15,27 +17,34 @@
     }
 
     .container {
-        max-width: 800px;
+        max-width: 1000px;
         margin: 0 auto;
         padding: 20px;
     }
 
     table {
-        width: 100%;
-        border-collapse: collapse;
-        background-color: #fff;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    }
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 0, 1) 100%); /* White to yellow gradient */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
     th, td {
         padding: 12px 15px;
         text-align: left;
         border-bottom: 1px solid #ddd;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
     }
 
     th {
-        background-color: #333;
-        color: #fff;
+         background-image: linear-gradient(180deg, black, white, yellow);
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+    color: black; /* Set text color to black */
+    font-size: 20px; /* Adjust the font size as needed */
+    text-align: center;
     }
 
     tr:hover {
@@ -43,15 +52,54 @@
     }
 
     .edit-btn {
-        background-color: #dc3545;
-        color: #fff;
-        border: none;
-        padding: 8px 12px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
+        background-color: #ffc107; /* Yellow color */
+    color: black; /* Black text color */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     }
-
+    
     .edit-btn:hover {
         background-color: #c82333;
     }
+    
+.bookings-heading {
+    color: white;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 46px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center the text */
+    margin-top: 40px; /* Add space above the heading */
+    text-shadow: 2px 2px 2px black; /* Add a shadow to the text */
+}
+
+    .remove-btn {
+    background-color: black; /* Black color */
+    color: white; /* White text color */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-container button {
+    background-color: rgba(100, 100, 100, 0.6); /* Black with 80% opacity */
+    color: yellow; /* Set button text color to yellow */
+    font-size: 18px; /* Set font size to 18px (adjust as needed) */
+    padding: 10px 20px; /* Increase padding for larger buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.button-container button:hover {
+    background-color: white; /* Change hover background color to white */
+    color: black; /* Change hover text color to black */
+}
+

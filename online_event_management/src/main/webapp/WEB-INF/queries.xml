@@ -195,11 +195,11 @@
 		<![CDATA[
 		CREATE TABLE booking
 		(
-			booking_id varchar(10) PRIMARY KEY,
+			bookingId varchar(10) PRIMARY KEY,
 			userId varchar(25) NOT NULL,
 			eventId varchar(25) NOT NULL,
 			eventName varchar(25) NOT NULL,
-			event_description varchar(100)
+			eventDescription varchar(100)
 		);	
 		]]>
 	</query>
@@ -207,7 +207,7 @@
 	
 	<query id="insert_booking">
 		<![CDATA[
-		INSERT INTO booking(booking_id, userId, eventId,eventName, event_description)
+		INSERT INTO booking(bookingId, userId, eventId,eventName, eventDescription)
 		VALUES(?, ?, ?, ?, ?);
 		]]>
 	</query>
@@ -215,7 +215,7 @@
 	
 	<query id="get_booking_ids">
 		<![CDATA[
-		SELECT booking_id
+		SELECT bookingId
 		FROM booking;
 		]]>
 	</query>
@@ -226,14 +226,31 @@
 			SELECT *
 			FROM booking
 			WHERE userId = ?
-			ORDER BY booking_id ASC;
+			ORDER BY bookingId ASC;
+		]]>
+	</query>
+	
+	<query id="get_booking_by_id">
+		<![CDATA[
+			SELECT *
+			FROM booking
+			WHERE bookingId = ?
+			ORDER BY bookingId ASC;
+		]]>
+	</query>
+	
+	<query id="update_booking_by_booking_id">
+		<![CDATA[
+			UPDATE booking 
+			SET eventId = ?, eventName = ?, eventDescription = ?
+			WHERE bookingId = ?;
 		]]>
 	</query>
 	
 	<query id="delete_booking_by_booking_id">
 		<![CDATA[
 			DELETE FROM booking
-			WHERE booking_id = ?;
+			WHERE bookingId = ?;
 		]]>
 	</query>
 	
@@ -249,7 +266,7 @@
 				eventName varchar(20),
 				eventDate varchar(10),
 				venue varchar(30),
-				eventDescription varchar(50),
+				eventDescription varchar(500),
 				budget double,
 				PRIMARY KEY (eventId)
 			);

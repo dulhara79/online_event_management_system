@@ -120,9 +120,61 @@ public class BookingServiceImpl implements IBookingService
 	}
 
 	@Override
-	public ArrayList<Booking> getBookingById() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Booking> getBookingById(String bookingId) {
+	ArrayList<Booking> bookinglist = new ArrayList<Booking>();
+		
+	System.out.println("getBookingById with a parameter: " + bookingId);
+	
+		try {
+
+			connection = DBConnection.getDBConnection();
+			
+			preparedStatement = connection.prepareStatement(QueryUtil.queryById(CommonConstants.QUERY_ID_GET_BOOKING_BY_ID));
+			preparedStatement.setString(CommonConstants.COLUMN_INDEX_ONE, bookingId);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			while(rs.next()) {
+				
+				Booking booking = new Booking();
+				
+				booking.setBookingId(rs.getString(CommonConstants.COLUMN_INDEX_ONE));
+				booking.setUserId(rs.getString(CommonConstants.COLUMN_INDEX_TWO));
+				booking.setEventId(rs.getString(CommonConstants.COLUMN_INDEX_THREE));
+				booking.setEventName(rs.getString(CommonConstants.COLUMN_INDEX_FOUR));
+				booking.setEventDescription(rs.getString(CommonConstants.COLUMN_INDEX_FIVE));
+				
+				bookinglist.add(booking);
+			}
+			
+			
+			
+		} catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
+
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				if (connection != null) {
+					connection.close();
+				}
+				if (preparedStatement != null) {
+					preparedStatement.close();
+				}
+
+			} catch (SQLException e) {
+
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+
+			}
+		}
+		
+		return bookinglist;
+	
 	}
 	
 	@Override
@@ -180,17 +232,55 @@ public class BookingServiceImpl implements IBookingService
 	}
 
 	@Override
-	public void updateBooking(String booking_id, Booking Booking) {
-		// TODO Auto-generated method stub
+	public void updateBooking(String bookingId, Booking Booking) {
+		try
+		{
+			connection = DBConnection.getDBConnection();
+			
+			preparedStatement = connection.prepareStatement(QueryUtil.queryById(CommonConstants.QUERY_ID_UPDATE_BOOKING_BY_BOOKING_ID));
+			connection.setAutoCommit(false);
+			
+			preparedStatement.setString(CommonConstants.COLUMN_INDEX_ONE, Booking.getEventId());
+			preparedStatement.setString(CommonConstants.COLUMN_INDEX_TWO, Booking.getEventName());
+			preparedStatement.setString(CommonConstants.COLUMN_INDEX_THREE, Booking.getEventDescription());
+			preparedStatement.setString(CommonConstants.COLUMN_INDEX_FOUR, Booking.getBookingId());
+			
+			preparedStatement.executeLargeUpdate();
+			connection.commit();
+			
+		}
+		catch(SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e)
+		{
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			try
+			{
+				if(connection != null)
+				{
+					connection.close();
+				}
+				
+				if(preparedStatement != null)
+				{
+					preparedStatement.close();
+				}
+			}
+			catch(SQLException e)
+			{
+				System.out.println(e.getMessage());
+			}
+		}
 		
 	}
 
 	@Override
-	public void deleteBooking(String booking_id) {
+	public void deleteBooking(String bookingId) {
 
-		System.out.println("Booking id in delete service impl: " + booking_id);
+		System.out.println("Booking id in delete service impl: " + bookingId);
 		
-		if(booking_id != null && !booking_id.isEmpty()) {
+		if(bookingId != null && !bookingId.isEmpty()) {
 			
 			try {
 				
@@ -198,7 +288,7 @@ public class BookingServiceImpl implements IBookingService
 				
 				preparedStatement = connection
 						.prepareStatement(QueryUtil.queryById(CommonConstants.QUERY_ID_DELETE_BOOKING_BY_BOOKING_ID));
-				preparedStatement.setString(CommonConstants.COLUMN_INDEX_ONE, booking_id);
+				preparedStatement.setString(CommonConstants.COLUMN_INDEX_ONE, bookingId);
 				
 				preparedStatement.execute();
 				
@@ -272,5 +362,6 @@ public class BookingServiceImpl implements IBookingService
 		
 		return ids;
 	}
+
 
 }
