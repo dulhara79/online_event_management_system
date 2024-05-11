@@ -9,6 +9,10 @@
    		CREATE TABLE admin (
         adminId varchar(10) PRIMARY KEY,
         userName varchar(20) NOT NULL,
+        name varchar(25) NOT NULL,
+        address varchar(25) NOT NULL,
+        phoneNum varchar(10) NOT NULL,
+        email varchar(15) NOT NULL,
         password varchar(20) NOT NULL
    	 );  
     	]]>
@@ -32,6 +36,7 @@
 		]]>
 	</query>
 	
+
 	<!-- coordinator -->
 	
 	<query id="create_coordinator_table">
@@ -69,6 +74,49 @@
 	</query>  -->
 	
 	
+
+	
+	<query id="insert_admin">
+		<![CDATA[
+			INSERT INTO admin (adminId, userName, name, address, phoneNum, email, password)
+			VALUES (?, ?, ?, ?, ?, ?, ?);
+		]]>
+	</query>
+	
+	
+	<query id="get_all_admin">
+		<![CDATA[
+			SELECT *
+			FROM admin
+			ORDER BY adminId ASC;
+		]]>
+	</query>
+	
+	
+	<query id="get_admin_ids">
+		<![CDATA[
+			SELECT adminId
+			FROM admin;
+		]]>
+	</query>
+	
+	
+	<query id="update_admin_by_id">
+		<![CDATA[
+			UPDATE admin
+			SET userName = ?, name = ?, address = ?, phoneNum = ?, email = ?, password = ?
+			WHERE adminId = ?;
+		]]>
+	</query>
+
+
+	<query id="delete_admin_by_id">
+		<![CDATA[
+			DELETE FROM admin
+			WHERE adminId = ?;
+		]]>
+	</query>
+
 	<!-- End admin table queries -->
 
 	

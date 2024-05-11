@@ -44,6 +44,10 @@ public class AdminLoginServlet extends HttpServlet {
 
 		String adminId = request.getParameter("adminId");
 		String password = request.getParameter("password");
+		
+		System.out.println("Admin Login servlet get parameter id : "+adminId);
+		System.out.println("Admin Login servlet get parameter id : "+password);
+
 
 		IAdminService iadminservice = new AdminServiceImpl();
 		Admin validateadmin = iadminservice.getAdminByID(adminId);
@@ -53,13 +57,18 @@ public class AdminLoginServlet extends HttpServlet {
 
 			request.getSession().setAttribute("status", "success");
 
-			request.getSession().setAttribute("userId", validateadmin.getAdminId());
+			request.getSession().setAttribute("adminId", validateadmin.getAdminId());
 			request.getSession().setAttribute("userName", validateadmin.getUserName());
 
+			System.out.println("Admin Login servlet validate: "+validateadmin.getAdminId());
+			
 			response.sendRedirect("adminIndex.jsp");
 
 		} else {
 
+			System.out.println("Admin Login servlet nonvalidate: "+validateadmin.getAdminId());
+			System.out.println("Admin Login servlet nonvalidate: "+validateadmin.getPassword());
+			
 			request.setAttribute("errorMessage", "Incorrect username or password. Please try again.");
 			request.getSession().setAttribute("status", "failed");
 			request.getRequestDispatcher("/adminLogin.jsp").forward(request, response);

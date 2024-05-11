@@ -1,3 +1,10 @@
+<%@page import="com.event.model.event.Event"%>
+<%@page import="com.event.service.event.EventServiceImpl"%>
+<%@page import="com.event.service.event.IEventEventService"%>
+<%@page import="com.event.model.User"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.event.service.user.UserServiceImpl"%>
+<%@page import="com.event.service.user.IUserService"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -9,6 +16,18 @@ String logoutUrl = "logout.jsp";
 String userID = (String) session.getAttribute("adminId");
 String userName = (String) session.getAttribute("userName");
 %>
+
+<%
+		IUserService iuserservice = new UserServiceImpl();
+		ArrayList<User> userList = iuserservice.getUsers();
+		
+		int userCount = userList.size();
+		
+		IEventEventService ieventservice = new EventServiceImpl();
+		ArrayList<Event> eventList = ieventservice.getEvents();
+		
+		int eventCount = eventList.size();
+	%>
 
 <!DOCTYPE html>
 <html>
@@ -50,6 +69,7 @@ label {
 
 </head>
 <body>
+
 	<%
 	String status = (String) session.getAttribute("status");
 
@@ -60,7 +80,7 @@ label {
 		response.sendRedirect("adminLogin.jsp");
 	}
 	%>
-
+	
 	<input type="hidden" id="status" value="<%=status%>">
 
 	<header>
@@ -111,15 +131,18 @@ label {
 					<li><a href="#">Analytics</a></li>
 					<li><a href="#">Reports</a></li>
 					<li><a href="#">Settings</a></li>
+					<li><a href="adminAddUser.jsp">Add User</a></li>
+					<li><a href="adminAddAdmin.jsp">Add Admin</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="adminAllAdmins.jsp">Manage Admins</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="adminAllUser.jsp">Manage Users</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="addCategory.jsp">Manage Company</a></li>
+						href="#">Manage Company</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="addCategory.jsp">Manage Coordinators</a></li>
+						href="#">Manage Coordinators</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="addCategory.jsp">Manage Events</a></li>
-					<li><a href="adminAddUser.jsp">Add User</a></li>
+						href="#">Manage Events</a></li>
 				</ul>
 			</div>
 		</div>
@@ -133,19 +156,19 @@ label {
 			<div class="event-list">
 				<!-- Here you can dynamically generate and display upcoming events -->
 				<div class="event">
-					<h3>User</h3>
-					<p>Lorem ipsum dolor</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<h3><span style="font-weight: 500; position: center;">User</span></h3>
+					<p>User count : <%= userCount %></p>
+					<p><a href="adminAllUser.jsp" style="text-decoration: none; color: blue">View all Users</a></p>
 				</div>
 				<div class="event">
-					<h3>Company</h3>
-					<p>Lorem ipsum dolor</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<h3><span style="font-weight: 500; position: center;">Company</span></h3>
+					<p>Company count : </p>
+					<p><a href="#" style="text-decoration: none; color: blue">View all Companies</a></p>
 				</div>
 				<div class="event">
-					<h3>Event</h3>
-					<p>Lorem ipsum dolor</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+					<h3><span style="font-weight: 500; position: center;">Event</span></h3>
+					<p>Event count : <%= eventCount %></p>
+					<p><a href="#" style="text-decoration: none; color: blue">View all Events</a></p>
 				</div>
 				<!-- Add more events as needed -->
 			</div>
