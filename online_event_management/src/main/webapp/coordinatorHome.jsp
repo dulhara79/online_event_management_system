@@ -138,7 +138,7 @@ String userName = (String) session.getAttribute("coordinatorName");
 	</section>
 
 <footer>
-        <p>&copy; 2025 Event Management System. All rights reserved.</p>
+        <p>&copy; 2024 Event Management System. All rights reserved.</p>
  </footer>
 </body>
 </html>
