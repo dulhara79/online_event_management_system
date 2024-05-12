@@ -285,7 +285,7 @@ String userName = (String) session.getAttribute("coordinatorName");
 		
 	    <nav class="content">
 	        <h1>Evora Events </h1>
-	        <p>Explore Our View Event Page!</p>
+	        <p>Explore Our View Events Page!</p>
 	        		
 		</nav>
     	
@@ -334,7 +334,7 @@ String userName = (String) session.getAttribute("coordinatorName");
 </div>
 
 <footer>
-        <p>&copy; 2025 Event Management System. All rights reserved.</p>
+        <p>&copy; 2024 Event Management System. All rights reserved.</p>
  </footer>
 
 </body>
