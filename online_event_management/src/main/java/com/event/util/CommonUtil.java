@@ -41,6 +41,26 @@ public class CommonUtil {
 		return id;
 
 	}
+
+	//Generate company ID with prefix
+			public static String generatecompanyIds(ArrayList<String> ids) {
+			
+			String id;
+			
+			int next = ids.size();
+			
+			id = CommonConstants.COMPANY_ID_PREFIX + next;
+			
+			if(ids.contains(id)) {
+				
+				next++;
+				
+				id = CommonConstants.COMPANY_ID_PREFIX + next;
+				
+			}
+			
+			return id;
+		}
 	
 	//Generate event ID with prefix
 		public static String generateEventIds(ArrayList<String> ids) {
