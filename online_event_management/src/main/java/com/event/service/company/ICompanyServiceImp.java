@@ -418,17 +418,56 @@ if(companyId != null && !companyId.isEmpty()) {
 	
 	}
 
+	@Override
+	public company getcompanybyId(String CompanyId) {
+		company cp = new company();
+
+		try {
+
+			connection = DBConnection.getDBConnection();
+
+			preparedStatement = connection
+					.prepareStatement(QueryUtil.queryById(CommonConstants.QUERY_ID_GET_COMPANY_BY_ID));
+			preparedStatement.setString(CommonConstants.COLUMN_INDEX_ONE, CompanyId);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while (rs.next()) {				
+				cp.setCompanyId(rs.getString(CommonConstants.COLUMN_INDEX_ONE));
+				cp.setUserName(rs.getString(CommonConstants.COLUMN_INDEX_TWO));
+				cp.setPassword(rs.getString(CommonConstants.COLUMN_INDEX_THREE));
+				cp.setLocation(rs.getString(CommonConstants.COLUMN_INDEX_FOUR));
+				cp.setType(rs.getString(CommonConstants.COLUMN_INDEX_FIVE));;
+				cp.setNumberofemp(rs.getString(CommonConstants.COLUMN_INDEX_SIX));
+			}
+			
+			System.out.println("icompanyservice company id: " + cp.getCompanyId());
+			System.out.println("icompanyservice company pw: " + cp.getPassword());
+
+		} catch (SQLException | SAXException | IOException | ParserConfigurationException | ClassNotFoundException e) {
+
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+
+		} finally {
+
+			try {
+
+				if (connection != null) {
+					connection.close();
+				}
+				if (stmt != null) {
+					stmt.close();
+				}
+
+			} catch (SQLException e) {
+
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+
+			}
+		}
+
+		return cp;
+	}
 }
-//
-//
-//	@Override
-//	public company getcompanybyId(String CompanyId) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//}
-//
-
-
-
-
