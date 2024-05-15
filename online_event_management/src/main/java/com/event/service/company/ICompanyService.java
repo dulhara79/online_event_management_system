@@ -18,7 +18,7 @@ public interface ICompanyService
 	
 	public ArrayList<company> getcompanyById(String CompanyId);
 	
-	//public company getcompanybyId(String CompanyId);
+	public company getcompanybyId(String CompanyId);
 	
 	public void Updatecompany(String companyId, company company);
 	

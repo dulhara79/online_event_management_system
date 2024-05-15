@@ -1,5 +1,17 @@
+<%@page import="com.event.util.CommonUtil"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.event.service.company.ICompanyServiceImp"%>
+<%@page import="com.event.service.company.ICompanyService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<% String logoutUrl = "logout.jsp"; %> 
+   
+<%
+	String companyId = (String) session.getAttribute("companyId");
+ 	String companyName = (String) session.getAttribute("companyName");
+%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +39,7 @@
         }
 
         /* Style form inputs */
-        input[type="text"] {
+        input[type="text"],[type="password"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -59,11 +71,20 @@
 <body>
 <h1>Insert Company Details</h1>
 
+ <%
+	
+ 		ICompanyServiceImp companyserviceimp = new ICompanyServiceImp();
+		ArrayList<String> companyIds = companyserviceimp.getcompanyIds();
+		
+		String comId = CommonUtil.generatecompanyIds(companyIds);
+
+%>
+
 
 <form action="<%= request.getContextPath()%>/Addcompanyservlet" method = "post">
-
+	Company ID<input type="text" id="companyId" name="" value="<%=comId%>" disabled="disabled">
 	Company Name <input type="text" name="UserName">
-	Company Password<input type="text" name="Password">
+	Company Password<input type="password" name="Password">
 	Company Location<input type="text" name="Location">
 	Company Type<input type="text" name="Type">
 	Number of employees in the Company <input type="text" name="Numberofemployee">

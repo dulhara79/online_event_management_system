@@ -2,9 +2,9 @@
 
 <queries>
 
-		<!-- start admin table queries -->
-		
-	   <query id="create_admin_table">
+	<!-- start admin table queries -->
+
+	<query id="create_admin_table">
     	<![CDATA[
    		CREATE TABLE admin (
         adminId varchar(10) PRIMARY KEY,
@@ -19,143 +19,14 @@
 	</query>
 
 
-	<query id="get_user_by_id">
-   		<![CDATA[
-        SELECT *
-        FROM user
-        WHERE userId = ?;
-    	]]>
-	</query> 
-
-
-	<query id="get_admin_by_id">
-		<![CDATA[
-			SELECT *
-			FROM admin
-			WHERE adminId = ?;
-		]]>
-	</query>
-
-
-	<!-- coordinator -->
-	
-	<query id="create_coordinator_table">
-    	<![CDATA[
-   		CREATE TABLE coordinator (
-        coordinatorId varchar(10) PRIMARY KEY,
-        coordinatorName varchar(20) NOT NULL,
-        password varchar(20) NOT NULL
-   	 );  
-    	]]>
-	</query>
-	
-	<query id="get_coordinator_by_id">
-		<![CDATA[
-			SELECT *
-			FROM coordinator
-			WHERE coordinatorId = ?;
-		]]>
-	</query>
-<!-- 	
-	<query id="insert_coordinator">
-		<![CDATA[
-			INSERT INTO coordinator(coordinatorId, userName, password)
-			VALUES (CD0000, dew, 1234);
-		]]>
-	</query> -->
-	
-<!-- 	 
-	
-	
-	<query id="get_all_coordinator">
-		<![CDATA[
-			SELECT * FROM coordinator ORDER BY coordinatorId ASC;
-		]]>
-	</query>  -->
-	
-
-	
-	
-<!-- create company table -->
-
-
-<query id="create_company_table">
-		<![CDATA[
-		CREATE TABLE company (
-			companyId varchar(10) PRIMARY KEY,
-			userName varchar(25),
-			password varchar(25),
-			location varchar(25),
-			Type varchar(25),
-			numberofemp varchar(25)
-			);
-		]]>
-	</query>
-	
-	<query id="insert_company">
-		<![CDATA[
-			INSERT INTO company(companyId, userName, password, location, Type, numberofemp)
-			VALUES (?, ?, ?, ?, ?, ?);
-		]]>
-	</query>
-
-<query id="get_company_ids">
-		<![CDATA[
-			SELECT companyId FROM company;
-			
-		]]>
-	</query>
-	
-	
-	<query id="get_company_all_company">
-		<![CDATA[
-			SELECT * FROM company;
-			
-		]]>
-	</query>
-	
-	<query id="get_company_by_id">
-		<![CDATA[
-			SELECT * FROM company WHERE CompanyId = ?;
-			
-		]]>
-	</query>
-	
-	<query id="update_company">
-		<![CDATA[
-			UPDATE company 
-			SET userName = ?, password = ?,location = ? ,type = ?,numberofemp = ?
-			WHERE companyId =  ? ;
-		]]>
-	</query>
-	
-	
-	<query id="delete_company">
-		<![CDATA[
-			DELETE from company WHERE CompanyId =  ? ;
-		]]>
-	</query>
-	
-	
-<query id="get_all_company">
-		<![CDATA[
-			SELECT * FROM company;
-			
-		]]>
-	</query>
-	
-	
-	
-	
-	
 	<query id="insert_admin">
 		<![CDATA[
 			INSERT INTO admin (adminId, userName, name, address, phoneNum, email, password)
 			VALUES (?, ?, ?, ?, ?, ?, ?);
 		]]>
 	</query>
-	
-	
+
+
 	<query id="get_all_admin">
 		<![CDATA[
 			SELECT *
@@ -163,16 +34,16 @@
 			ORDER BY adminId ASC;
 		]]>
 	</query>
-	
-	
+
+
 	<query id="get_admin_ids">
 		<![CDATA[
 			SELECT adminId
 			FROM admin;
 		]]>
 	</query>
-	
-	
+
+
 	<query id="update_admin_by_id">
 		<![CDATA[
 			UPDATE admin
@@ -189,9 +60,89 @@
 		]]>
 	</query>
 
+	<query id="get_admin_by_id">
+		<![CDATA[
+			SELECT *
+			FROM admin
+			WHERE adminId = ?;
+		]]>
+	</query>
+
 	<!-- End admin table queries -->
 
-	
+
+
+	<!-- create company table -->
+
+	<query id="create_company_table">
+		<![CDATA[
+		CREATE TABLE company (
+			companyId varchar(10) PRIMARY KEY,
+			userName varchar(25),
+			password varchar(25),
+			location varchar(25),
+			Type varchar(25),
+			numberofemp varchar(25)
+			);
+		]]>
+	</query>
+
+	<query id="insert_company">
+		<![CDATA[
+			INSERT INTO company(companyId, userName, password, location, Type, numberofemp)
+			VALUES (?, ?, ?, ?, ?, ?);
+		]]>
+	</query>
+
+	<query id="get_company_ids">
+		<![CDATA[
+			SELECT companyId FROM company;
+			
+		]]>
+	</query>
+
+
+	<query id="get_company_all_company">
+		<![CDATA[
+			SELECT * FROM company;
+			
+		]]>
+	</query>
+
+	<query id="get_company_by_id">
+		<![CDATA[
+			SELECT * 
+			FROM company 
+			WHERE CompanyId = ?;			
+		]]>
+	</query>
+
+	<query id="update_company">
+		<![CDATA[
+			UPDATE company 
+			SET userName = ?, password = ?,location = ? ,type = ?,numberofemp = ?
+			WHERE companyId =  ? ;
+		]]>
+	</query>
+
+
+	<query id="delete_company">
+		<![CDATA[
+			DELETE from company WHERE CompanyId =  ? ;
+		]]>
+	</query>
+
+
+	<query id="get_all_company">
+		<![CDATA[
+			SELECT * FROM company;
+			
+		]]>
+	</query>
+
+	<!-- End company table queries -->
+
+
 	<!-- start user table queries -->
 
 	<query id="create_user_table">
@@ -209,30 +160,30 @@
 		);
 		]]>
 	</query>
-	
-	
+
+
 	<query id="get_user_ids">
 		<![CDATA[
 			SELECT userId  FROM user;
 		]]>
 	</query>
-	
-	
+
+
 	<query id="insert_user">
 		<![CDATA[
 			INSERT INTO user(userId, userName, firstName, lastName, gender, address, phoneNo, email, password)
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
 		]]>
 	</query>
-	
-	
+
+
 	<query id="get_all_user">
 		<![CDATA[
 			SELECT * FROM user ORDER BY userId ASC;
 		]]>
 	</query>
-	
-	
+
+
 	<query id="get_user_by_id">
 		<![CDATA[
 			SELECT *
@@ -241,7 +192,7 @@
 		]]>
 	</query>
 
-	
+
 	<query id="update_user_by_id">
 		<![CDATA[
 			UPDATE user
@@ -250,17 +201,25 @@
 		]]>
 	</query>
 
-	
+
 	<query id="delete_user_by_id">
 		<![CDATA[
 			DELETE FROM user
 			WHERE userId = ?;
 		]]>
-	</query> 
-	
+	</query>
+
+	<query id="get_user_by_id">
+   		<![CDATA[
+        SELECT *
+        FROM user
+        WHERE userId = ?;
+    	]]>
+	</query>
+
 	<!-- End user table queries -->
-	
-	
+
+
 	<!-- start booking table queries -->
 
 	<query id="create_booking_table">
@@ -275,24 +234,24 @@
 		);	
 		]]>
 	</query>
-	
-	
+
+
 	<query id="insert_booking">
 		<![CDATA[
 		INSERT INTO booking(bookingId, userId, eventId,eventName, eventDescription)
 		VALUES(?, ?, ?, ?, ?);
 		]]>
 	</query>
-	
-	
+
+
 	<query id="get_booking_ids">
 		<![CDATA[
 		SELECT bookingId
 		FROM booking;
 		]]>
 	</query>
-	
-	
+
+
 	<query id="get_booking_by_user_id">
 		<![CDATA[
 			SELECT *
@@ -301,7 +260,7 @@
 			ORDER BY bookingId ASC;
 		]]>
 	</query>
-	
+
 	<query id="get_booking_by_id">
 		<![CDATA[
 			SELECT *
@@ -310,7 +269,7 @@
 			ORDER BY bookingId ASC;
 		]]>
 	</query>
-	
+
 	<query id="update_booking_by_booking_id">
 		<![CDATA[
 			UPDATE booking 
@@ -318,19 +277,19 @@
 			WHERE bookingId = ?;
 		]]>
 	</query>
-	
+
 	<query id="delete_booking_by_booking_id">
 		<![CDATA[
 			DELETE FROM booking
 			WHERE bookingId = ?;
 		]]>
 	</query>
-	
+
 	<!-- End booking table queries -->
-	
-	
+
+
 	<!-- start event table queries -->
-	
+
 	<query id="create_event_table">
 		<![CDATA[
 			CREATE TABLE events(
@@ -345,37 +304,37 @@
 			
 		]]>
 	</query>
-	
-	
+
+
 	<query id="insert_event">
 		<![CDATA[
 			INSERT INTO events(eventId,eventName,eventDate,venue,eventDescription,budget)
 			VALUES(?,?,?,?,?,?);			
 		]]>
 	</query>
-	
-	
+
+
 	<query id="get_event_ids">
 		<![CDATA[
 			SELECT eventId FROM events;
 		]]>
 	</query>
-	
-	
+
+
 	<query id="get_event_all_events">
 		<![CDATA[
 			SELECT * FROM events;
 		]]>
 	</query>
-	
-	
+
+
 	<query id="get_event_by_id">
 		<![CDATA[
 			SELECT * FROM events WHERE eventId = ?;
 		]]>
 	</query>
-	
-	
+
+
 	<query id="update_event">
 		<![CDATA[
 			UPDATE events 
@@ -383,14 +342,43 @@
 			WHERE eventId = ?;
 		]]>
 	</query>
-	
-	
+
+
 	<query id="delete_event">
 		<![CDATA[
 			DELETE FROM events WHERE eventId = ?;
 		]]>
-	</query> 
-	
+	</query>
+
 	<!-- End event table queries -->
-	
+
+	<!-- start coordinator table queries -->
+
+	<query id="create_coordinator_table">
+    	<![CDATA[
+   		CREATE TABLE coordinator (
+        coordinatorId varchar(10) PRIMARY KEY,
+        coordinatorName varchar(20) NOT NULL,
+        password varchar(20) NOT NULL
+   	 );  
+    	]]>
+	</query>
+
+	<query id="get_coordinator_by_id">
+		<![CDATA[
+			SELECT *
+			FROM coordinator
+			WHERE coordinatorId = ?;
+		]]>
+	</query>
+	<!-- <query id="insert_coordinator"> <![CDATA[ INSERT INTO coordinator(coordinatorId, 
+		userName, password) VALUES (CD0000, dew, 1234); ]]> </query> -->
+
+	<!-- <query id="get_all_coordinator"> <![CDATA[ SELECT * FROM coordinator 
+		ORDER BY coordinatorId ASC; ]]> </query> -->
+
+
+
+	<!-- End coordinator table queries -->
+
 </queries>
