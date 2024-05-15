@@ -35,7 +35,7 @@
 			WHERE adminId = ?;
 		]]>
 	</query>
-	
+
 
 	<!-- coordinator -->
 	
@@ -73,8 +73,80 @@
 		]]>
 	</query>  -->
 	
-	
 
+	
+	
+<!-- create company table -->
+
+
+<query id="create_company_table">
+		<![CDATA[
+		CREATE TABLE company (
+			companyId varchar(10) PRIMARY KEY,
+			userName varchar(25),
+			password varchar(25),
+			location varchar(25),
+			Type varchar(25),
+			numberofemp varchar(25)
+			);
+		]]>
+	</query>
+	
+	<query id="insert_company">
+		<![CDATA[
+			INSERT INTO company(companyId, userName, password, location, Type, numberofemp)
+			VALUES (?, ?, ?, ?, ?, ?);
+		]]>
+	</query>
+
+<query id="get_company_ids">
+		<![CDATA[
+			SELECT companyId FROM company;
+			
+		]]>
+	</query>
+	
+	
+	<query id="get_company_all_company">
+		<![CDATA[
+			SELECT * FROM company;
+			
+		]]>
+	</query>
+	
+	<query id="get_company_by_id">
+		<![CDATA[
+			SELECT * FROM company WHERE CompanyId = ?;
+			
+		]]>
+	</query>
+	
+	<query id="update_company">
+		<![CDATA[
+			UPDATE company 
+			SET userName = ?, password = ?,location = ? ,type = ?,numberofemp = ?
+			WHERE companyId =  ? ;
+		]]>
+	</query>
+	
+	
+	<query id="delete_company">
+		<![CDATA[
+			DELETE from company WHERE CompanyId =  ? ;
+		]]>
+	</query>
+	
+	
+<query id="get_all_company">
+		<![CDATA[
+			SELECT * FROM company;
+			
+		]]>
+	</query>
+	
+	
+	
+	
 	
 	<query id="insert_admin">
 		<![CDATA[
