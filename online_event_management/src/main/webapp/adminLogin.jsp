@@ -57,7 +57,7 @@
   }
   .login-image {
     flex: 1;
-    background: /* url('img/adminLoginImg.jpg')  */no-repeat center center;
+    background: url('img/adminLoginImg.jpg')no-repeat center center;
     background-size: cover;
     max-width: 100px;
     height: auto;
@@ -71,7 +71,7 @@
 
 <div class="container">
   <div class="login-image">
-     <img alt="" src="img/adminLoginImg.jpg">
+     <!-- <img class="login-image"  alt="" src="img/adminLoginImg.jpg"> -->
   </div>
   <div class="login-form">
     <form action="<%= request.getContextPath() %>/AdminLoginServlet" method="post">
