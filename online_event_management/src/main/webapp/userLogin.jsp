@@ -98,7 +98,7 @@
 	<h5 class="admin-form-lable" style="margin-left: 30px;"> 
 		<a href="adminLogin.jsp" style="text-decoration: none; color: blue;">Admin Login</a> |
 		<a href="coordinatorLogin.jsp" style="text-decoration: none; color: blue;">Coordinator Login</a> |
-		<a href="#" style="text-decoration: none; color: blue;">Company Login</a>
+		<a href="companyLogin.jsp" style="text-decoration: none; color: blue;">Company Login</a>
 	</h5>
 </form>
 </div>
