@@ -1,4 +1,4 @@
-<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
     
@@ -8,13 +8,6 @@
 <%@ page import = "java.util.ArrayList" %>  
 
 <!DOCTYPE html>
-<html>
-<head>
-
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -78,9 +71,8 @@
 		
 		<form action="<%= request.getContextPath()%>/Updatecompanyservlet" method="post"> 
 		
-		 <form action="<%= request.getContextPath()%>/Addcompanyservlet" method="post">  
-		
-			Company Id<input type="text" name="companyId" value="<%= companies.getCompanyId() %>" disabled>
+			<input type="hidden" type="text" name="companyId" value="<%= companies.getCompanyId() %>">
+			Company Id<input type="text" name="companyId" value="<%= companies.getCompanyId() %>" disabled="disabled">
 			Company Name <input type="text" name="UserName" value="<%= companies.getUserName() %>" >
 			Company Password <input type="text" name="Password" value="<%= companies.getPassword() %>" >
 			Company Location <input type="text" name="Location" value="<%= companies.getLocation() %>" >
@@ -97,4 +89,3 @@
 
 </html>
 
- --%>
