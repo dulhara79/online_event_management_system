@@ -15,6 +15,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="js/adminFormValidation.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -43,7 +46,9 @@ label {
 }
 </style>
 
-<title>Admin Register</title>
+<script src="js/adminFormValidation.js"></script>
+
+<title>Admin-Register admin</title>
 </head>
 <body>
 
@@ -111,7 +116,7 @@ label {
     <h1>Add Admin</h1>
     <div class="row">
     	<div class="col-8 offset-2">
-		   <form action="<%= request.getContextPath() %>/AddAdminServlet" method="post">
+		   <form action="<%= request.getContextPath() %>/AddAdminServlet" method="post" oninput="enableSubmit()">
 		   	   <div class="form-group">
 					<label for="username">AdminID</label> 
 					<input type="text" id="adminId" name="" value="<%=adminId%>" disabled="disabled">
@@ -119,22 +124,26 @@ label {
 		   	   
 		       <div class="form-group">
 		           <label for="exampleInputEmail1">Username</label>
-		           <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+		           <input type="text" class="form-control" id="userName" name="username" placeholder="Enter username" required oninput="validateUserNames()">
+		           <span class="phoneError" id="usernameError" ></span>
 		       </div>
 		
 		       <div class="form-group">
 		           <label for="exampleInputEmail1">Name</label>
-		           <input type="text" class="form-control" id="firstname" name="name" placeholder="Enter name" required>
+		           <input type="text" class="form-control" id="firstname" name="name" placeholder="Enter name" required oninput="validateNames()">
+		           <span class="phoneError" id="firstnameError" ></span>
 		       </div>
 		
 		       <div class="form-group">
 		           <label for="address">Address</label>
-		           <textarea id="address" class="form-control" name="address" placeholder="Enter Address" required></textarea>
+		           <input type="text" id="address" class="form-control" name="address" placeholder="Enter Address" required oninput="validateAddress()">
+		           <span class="phoneError" id="addressError" ></span>
 		       </div>
 		
 		       <div class="form-group">
 		           <label for="mobileno">Phone number</label>
-		           <input type="text" class="form-control" id="mobileno" name="mobileno" placeholder="Enter Mobile Number" required>
+		           <input type="text" class="form-control" id="mobileno" name="mobileno" placeholder="Enter Mobile Number" required oninput="validatePhone()">
+		           <span class="phoneError" id="phoneError" ></span>
 		       </div>
 		
 		       <div class="form-group">
@@ -144,10 +153,16 @@ label {
 		
 		       <div class="form-group">
 		           <label for="password">Password</label>
-		           <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+		           <input type="password" class="form-control" id="password" placeholder="Enter Password" required oninput="validatePasswords()">
+		       </div>
+		       
+		       <div class="form-group">
+		           <label for="password">Comfirm Password</label>
+		           <input type="password" class="form-control" id="rePassword" name="password" placeholder="Comfirm Password" required oninput="validatePasswords()">
+		           <span class="phoneError" id="passwordError"></span>
 		       </div>
 		
-		       <button type="submit" class="btn btn btn-primary btn-block">Register</button>
+		       <button type="submit" id="submit" class="btn btn btn-primary btn-block" disabled>Register</button>
 		   </form>
 		</div>
 	</div>  

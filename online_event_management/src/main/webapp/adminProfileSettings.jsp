@@ -55,7 +55,7 @@ label {
 
 <script src="js/adminFormValidation.js"></script>
 
-<title>Admin-Update admin</title>
+<title>Addmin-Settings</title>
 </head>
 <body>
 
