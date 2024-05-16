@@ -13,6 +13,8 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
+
 </head>
 <body>
 <h2>Update Public Event</h2>
@@ -29,14 +31,14 @@
 		for(Event events: eventList) {
 	%>
 		
-		<form action="<%= request.getContextPath()%>/UpdateEventServlet" method="post">
+		<form action="<%= request.getContextPath()%>/UpdateEventServlet" method="post" onsubmit="return validateForm()">
 		
-			<input type="hidden" name="eventId" value="<%= events.getEventId() %>" >
-			Event Name <input type="text" name="eventname" value="<%= events.getEventName() %>" >
-			Event Date <input type="text" name="eventdate" value="<%= events.getEventDate() %>" >
+			<input type="hidden" name="eventId" value="<%= events.getEventId() %>">
+			Event Name <input type="text" id="eventname" name="eventname" value="<%= events.getEventName() %>" >
+			Event Date <input type="text" id="eventdate" name="eventdate" value="<%= events.getEventDate() %>" >
 			Event Venue <input type="text" name="eventvenue" value="<%= events.getVenue() %>" >
 			Event Description <input type="text" name="eventdescription" value="<%= events.getEventDescription() %>" >
-			Event Budget <input type="text" name="budget" value="<%= events.getBudget() %>" >
+			Event Budget <input type="text" id="budget" name="budget" value="<%= events.getBudget() %>" >
 			<input type="submit" value="Update">
 		
 		</form>
@@ -44,6 +46,33 @@
 	<%
 		}
 	%>
+	
+<script>
+    function validateForm() {
+        var eventName = document.getElementById("eventname").value;
+        if (eventName.charAt(0) !== eventName.charAt(0).toUpperCase()) {
+            alert("Event name must start with an uppercase letter.");
+            return false;
+        }
+        
+        var budget = document.getElementById("budget").value;
+        if (budget < 10000) {
+            alert("Budget must be greater than or equal to 10000.");
+            return false;
+        }
+        
+        var eventDate = document.getElementById("eventdate").value;
+        var today = new Date();
+        var selectedDate = new Date(eventDate);
+        
+        if (selectedDate.getTime() < today.getTime()) {
+            alert("Event date must be today or a future date.");
+            return false;
+        }
+        
+        return true;
+    }
+</script>
 
 <style>
     body {

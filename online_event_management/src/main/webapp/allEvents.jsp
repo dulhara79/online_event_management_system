@@ -53,7 +53,7 @@
         display: inline-block; /* Form elements inline */
     }
     input[type="submit"] {
-        background-color: #9928d1; 
+        background-color: #733fd4; 
         color: white;
         border: none;
         padding: 5px 10px;
@@ -158,6 +158,10 @@
 
 <form action="<%= request.getContextPath()%>/view.jsp" method="post">
     <input type="submit" value="View Events" id="view-event-btn">
+</form>
+
+<form action="<%= request.getContextPath()%>/coordinatorHome.jsp" method="post">
+    <input type="submit" value="Event Coordinator Home" id="view-event-btn">
 </form>
 
 </body>
