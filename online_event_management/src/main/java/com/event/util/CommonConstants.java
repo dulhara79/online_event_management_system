@@ -112,8 +112,26 @@ public class CommonConstants {
 	/** Constant for company id prefix */
 	public static final String COMPANY_ID_PREFIX = "CP0000";
 	
+	public static final String QUERY_ID_CREATE_COMPANY_TABLE = "create_company_table";
 	
+	public static final String QUERY_ID_INSERT_COMPANY = "insert_company";
+	
+	public static final String QUERY_ID_GET_COMPANY_IDS = "get_company_ids";
+	
+	public static final String QUERY_ID_GET_ALL_COMPANIES = "get_company_all_company";
+	
+	public static final String QUERY_ID_GET_COMPANY_BY_ID = "get_company_by_id";
+	
+	public static final String QUERY_ID_UPDATE_COMPANY = "update_company";
 
+	public static final String QUERY_ID_DELETE_COMPANY = "delete_company" ;
+
+	public static final String QUERY_ID_GET_ALL_COMPANY ="get_all_company";
+
+
+	
+	
+	
 	/*
 	 * Admin constants
 	 */

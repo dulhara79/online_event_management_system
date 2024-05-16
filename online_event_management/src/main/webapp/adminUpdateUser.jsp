@@ -52,6 +52,8 @@ label {
 }
 </style>
 
+<script src="js/userFormValidation.js"></script>
+
 </head>
 <body>
 
@@ -121,31 +123,35 @@ label {
 
 <div class="container">
     <h1>Update</h1>
-    <form action="<%= request.getContextPath() %>/UpdateUserServlet" method="post">
+    <form action="<%= request.getContextPath() %>/UpdateUserServlet" method="post" oninput="enableSubmit()">
     	
     	<input type = "hidden" name= "userId" value = "<%= users.getUserId() %>">
     
     	<div class="form-group">
             <label for="username">UserID</label>
-            <input type="text" id="username" name="username" value="<%= users.getUserId()%>" disabled="disabled">
+            <input type="text" name="username" value="<%= users.getUserId()%>" disabled="disabled">
         </div>
     
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" value="<%= users.getUserName() %>" required>
+            <input type="text" id="userName" name="username" value="<%= users.getUserName() %>" required oninput="validateUserNames()">
+            <span class="phoneError" id="usernameError" ></span>
         </div>
 
         <div class="form-group">
             <label for="firstname">First name</label>
-            <input type="text" id="firstname" name="firstname" value="<%= users.getFirstName() %>" required>
+            <input type="text" id="firstname" name="firstname" value="<%= users.getFirstName() %>" required oninput="validateFirstNames()">
+            <span class="phoneError" id="firstnameError" ></span>
         </div>
 
         <div class="form-group">
             <label for="lastname">Last name</label>
-            <input type="text" id="lastname" name="lastname" value="<%= users.getLastName() %>" required>
+            <input type="text" id="lastname" name="lastname" value="<%= users.getLastName() %>" required oninput="validateLastNames()">
+            <span class="phoneError" id="lastnameError" ></span>
         </div>
 
         <div class="form-group">
+        	<input type="hidden" id="update-gender" name="" value="<%= users.getGender() %>">
             <label>Gender</label><br>
             <input type="radio" id="male" name="gender" value="Male" required>
             <label for="male">Male</label>
@@ -155,13 +161,14 @@ label {
 
         <div class="form-group">
             <label for="address">Address</label>
-            <input type="text" id="address" name="address" value="<%= users.getAddress() %>" required>
-            <%-- <textarea id="address" name="address" value="<%= users.getAddress()%>" required></textarea> --%>
-        </div>
+            <input type="text" id="address" name="address" value="<%= users.getAddress() %>" required oninput="validateAddress()">
+			<span class="phoneError" id="addressError" ></span>        
+		</div>
 
         <div class="form-group">
             <label for="mobileno">Phone number</label>
-            <input type="text" id="mobileno" name="mobileno" value="<%= users.getPhoneNo()%>" required>
+            <input type="text" id="mobileno" name="mobileno" value="<%= users.getPhoneNo()%>" required oninput="validatePhone()">
+            <span class="phoneError" id="phoneError" ></span>
         </div>
 
         <div class="form-group">
@@ -171,10 +178,16 @@ label {
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" value="<%= users.getPassword() %>" required>
+            <input type="password" id="password" name="password" value="<%= users.getPassword() %>" required oninput="validatePasswords()">
         </div>
+        
+        <div class="form-group">
+		    <label for="password">Comfirm Password</label>
+		    <input type="password" class="form-control" id="rePassword" name="password" value="<%= users.getPassword() %>" required oninput="validatePasswords()">
+		    <span class="phoneError" id="passwordError"></span>
+		</div>
 
-        <button type="submit" class="btn">Update Details</button>
+        <button type="submit" id="submit" class="btn btn btn-primary btn-block" disabled>Update Details</button>
     </form>
 </div>
 	 <%

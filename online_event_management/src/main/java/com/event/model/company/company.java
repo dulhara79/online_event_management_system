@@ -45,6 +45,9 @@ public class company {
 	public void setNumberofemp(String string) {
 		this.numberofemp = string;
 	}
-    
+	/*
+	 * public Object getCompanyName() { // TODO Auto-generated method stub return
+	 * null; }
+	 */
     
 }
