@@ -53,6 +53,8 @@ label {
 }
 </style>
 
+<script src="js/adminFormValidation.js"></script>
+
 <title>Admin-Update admin</title>
 </head>
 <body>
@@ -123,35 +125,38 @@ label {
 
 <div class="container">
     <h1>Update</h1>
-    <form action="<%= request.getContextPath() %>/UpdateAdminServlet" method="post">
+    <form action="<%= request.getContextPath() %>/UpdateAdminServlet" method="post" oninput="enableSubmit()">
     	
     	<input type = "hidden" name= "adminId" value = "<%= admin.getAdminId()%>">
     
     	<div class="form-group">
             <label for="username">Admin ID</label>
-            <input type="text" id="username" name="adminId" value="<%= admin.getAdminId()%>" disabled="disabled">
+            <input type="text" id="" name="adminId" value="<%= admin.getAdminId()%>" disabled="disabled">
         </div>
     
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" value="<%= admin.getUserName() %>" required>
+            <input type="text" id="userName" name="username" value="<%= admin.getUserName() %>" required oninput="validateUserNames()">
+            <span class="phoneError" id="usernameError" ></span>
         </div>
 
         <div class="form-group">
             <label for="firstname">Name</label>
-            <input type="text" id="firstname" name="name" value="<%= admin.getName() %>" required>
+            <input type="text" id="firstname" name="name" value="<%= admin.getName() %>" required oninput="validateNames()">
+            <span class="phoneError" id="firstnameError" ></span>
         </div>
         
 
         <div class="form-group">
             <label for="address">Address</label>
-            <input type="text" id="address" name="address" value="<%= admin.getAddress() %>" required>
-            <%-- <textarea id="address" name="address" value="<%= users.getAddress()%>" required></textarea> --%>
+            <input type="text" id="address" name="address" value="<%= admin.getAddress() %>" required oninput="validateAddress()">
+            <span class="phoneError" id="addressError" ></span>
         </div>
 
         <div class="form-group">
             <label for="mobileno">Phone number</label>
-            <input type="text" id="mobileno" name="mobileno" value="<%= admin.getPhoneNum() %>" required>
+            <input type="text" id="mobileno" name="mobileno" value="<%= admin.getPhoneNum() %>" required oninput="validatePhone()">
+            <span class="phoneError" id="phoneError" ></span>
         </div>
 
         <div class="form-group">
@@ -161,10 +166,17 @@ label {
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" value="<%= admin.getPassword() %>" required>
+            <input type="password" id="password" value="<%= admin.getPassword() %>" required oninput="validatePasswords()">
+            <span class="phoneError" id="passwordError" ></span>
         </div>
+        
+        <div class="form-group">
+		    <label for="password">Comfirm Password</label>
+		    <input type="password" class="form-control" id="rePassword" name="password" value="<%= admin.getPassword() %>" required oninput="validatePasswords()">
+		    <span class="phoneError" id="passwordError"></span>
+		</div>
 
-        <button type="submit" class="btn">Update Details</button>
+        <button type="submit" id="submit" class="btn btn btn-primary btn-block" disabled>Update Details</button>
     </form>
 </div>
 	 <%
