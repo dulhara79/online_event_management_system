@@ -8,6 +8,33 @@
 <title>Insert title here</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+<script>
+    function validateForm() {
+        var eventName = document.getElementById("eventname").value;
+        if (eventName.charAt(0) !== eventName.charAt(0).toUpperCase()) {
+            alert("Event name must start with an uppercase letter.");
+            return false;
+        }
+        
+        var budget = document.getElementById("budget").value;
+        if (budget < 10000) {
+            alert("Budget must be greater than or equal to 10000.");
+            return false;
+        }
+        
+        var eventDate = document.getElementById("eventdate").value;
+        var today = new Date();
+        var selectedDate = new Date(eventDate);
+        
+        if (selectedDate.getTime() < today.getTime()) {
+            alert("Event date must be today or a future date.");
+            return false;
+        }
+        
+        return true;
+    }
+</script>
+
 </head>
 <body>
 
@@ -80,19 +107,23 @@
     }
 </style>
 
-<form action="<%= request.getContextPath()%>/AddEventServlet" method = "post">
+<form action="<%= request.getContextPath()%>/AddEventServlet" method = "post"  onsubmit="return validateForm();">
 
-	Event Name <input type="text" name="eventname">
-	Event Date <input type="text" name="eventdate">
+	Event Name <input type="text" name="eventname" id="eventname">
+	Event Date <input type="text" name="eventdate" id="eventdate">
 	Event Venue <input type="text" name="eventvenue">
 	Event Description <input type="text" name="eventdescription">
-	Event Budget <input type="text" name="budget">
+	Event Budget <input type="text" name="budget" id="budget">
 	<input type="submit" value="Add event details">
 
 </form>
 
 <form action="<%= request.getContextPath()%>/view.jsp" method="post">
     <input type="submit" value="View Events" id="view-event-btn">
+</form>
+
+<form action="<%= request.getContextPath()%>/coordinatorHome.jsp" method="post">
+    <input type="submit" value="Event Coordinator Home" id="view-event-btn">
 </form>
 
 </body>

@@ -52,7 +52,7 @@ response.setContentType("text/html");
 		event.setEventDate(request.getParameter("eventdate"));
 		event.setVenue(request.getParameter("eventvenue"));
 		event.setEventDescription(request.getParameter("eventdescription"));
-		event.setBudget(Double.parseDouble(request.getParameter("budget"))); //not sure
+		event.setBudget(Double.parseDouble(request.getParameter("budget"))); 
 		
 		System.out.println(event.getEventId());
 		
