@@ -2,7 +2,7 @@
  * 
  */
   function validateUserNames() {
-    var user = document.getElementById('username').value;
+    var user = document.getElementById('userName').value;
     var regex = /^[a-zA-Z]+$/;
     
     if (!regex.test(user)) {
