@@ -41,7 +41,7 @@
         border-radius: 4px;
         box-sizing: border-box;
     }
-    input[type="submit"] {
+    button[type="submit"] {
         background-color: #4CAF50;
         color: white;
         padding: 12px 20px;
@@ -50,10 +50,91 @@
         cursor: pointer;
         font-size: 16px;
     }
-    input[type="submit"]:hover {
+    button[type="submit"]:hover {
         background-color: #45a049;
     }
+    
+    .phoneError{
+		color: red;
+	}
 </style>
+
+ <script type="text/javascript">
+    function validateUserNames() {
+        var user = document.getElementById('userName').value;
+        var regex = /^[a-zA-Z]+$/;
+        
+        if (!regex.test(user)) {
+          document.getElementById('companyNameError').innerText = 'User name name must contain only alphabetic characters.';
+          return false;
+        } else {
+          document.getElementById('companyNameError').innerText = '';
+          return true;
+        }
+    }
+    
+    function validatevalidateCharactersOnly() {
+        var user = document.getElementById('char').value;
+        var regex = /^[a-zA-Z]+$/;
+        
+        if (!regex.test(user)) {
+          document.getElementById('characterError').innerText = 'Must contain only alphabetic characters.';
+          return false;
+        } else {
+          document.getElementById('characterError').innerText = '';
+          return true;
+        }
+    }
+    
+    function validatePasswords() {
+    	var password = document.getElementById('password').value;
+    	var rePassword = document.getElementById('rePassword').value;
+    	if (password !== rePassword) {
+    		document.getElementById('passwordError').innerText = '* Passwords do not match.';
+    		return false;
+    	} else {
+    		document.getElementById('passwordError').innerText = '';
+    		return true;
+    	}
+    }
+    
+    function validateAddress() {
+        var address = document.getElementById('address').value;
+        var regex = /^[a-zA-Z0-9/. ,]+$/;
+
+        if (!regex.test(address)) {
+          document.getElementById('locationError').innerText = 'Location can only contain letters, numbers, forward slashes, dots, and commas.';
+          return false;
+        } else {
+          document.getElementById('locationError').innerText = '';
+          return true;
+        }
+      }
+    
+    function validateEmployee(){
+    	var phone = document.getElementById('employee').value;
+    	var num = /^[0-9]+$/;
+    	
+    	if (!num.test(phone)) {
+    		document.getElementById('employeeError').innerText = '* Number of employee should be a number.';
+    		return false;
+    	} else {
+          document.getElementById('employeeError').innerText = '';
+          return true;
+        }
+    }
+    
+    function enableSubmit() {
+    	var isUsernameValidate = validateUserNames();
+    	var arePasswordsValid = validatePasswords();
+    	var areCharactersValidate = validatevalidateCharactersOnly();
+    	var isLocationValidate = validateAddress();
+    	var areEmployeeValidate = validateEmployee();
+    	
+    	document.getElementById('submit').disabled = !(areEmployeeValidate && isLocationValidate && areCharactersValidate && arePasswordsValid && isUsernameValidate);
+    }
+    
+    </script>
 </head>
 <body>
 <h2>Update Company Details</h2>
@@ -69,17 +150,30 @@
 	for(company companies: companyList) {
 	%>
 		
-		<form action="<%= request.getContextPath()%>/Updatecompanyservlet" method="post"> 
+		<form action="<%= request.getContextPath()%>/Updatecompanyservlet" method="post" oninput="enableSubmit()"> 
 		
 			<input type="hidden" type="text" name="companyId" value="<%= companies.getCompanyId() %>">
 			Enter Company Id<input type="text" name="companyId" value="<%= companies.getCompanyId() %>" disabled="disabled">
-			Enter Company Name <input type="text" name="UserName" value="<%= companies.getUserName() %>" >
-			Enter Company Password <input type="text" name="Password" value="<%= companies.getPassword() %>" >
-			Enter Company Location <input type="text" name="Location" value="<%= companies.getLocation() %>" >
-			Enter Company Type 	<input type="text" name="Type" value="<%= companies.getType() %>" >
-			Enter Number of employees in the Company <input type="text" name="Numberofemployee" value="<%= companies.getNumberofemp() %>" >
-			<input type="submit" value="Update">
-		
+			
+			Company Name <input type="text" id="userName" name="UserName" value="<%= companies.getUserName() %>" oninput="validateUserNames()">
+			<span class="phoneError" id="companyNameError" ></span> <br><br>
+			
+			Company Password<input id="password" type="password" name="" value="<%= companies.getPassword() %>" oninput="validatePasswords()">
+			
+			Confirm Password<input id="rePassword" type="password" name="Password" value="<%= companies.getPassword() %>" oninput="validatePasswords()">
+			<span class="phoneError" id="passwordError" ></span> <br><br>
+			
+			Company Location<input type="text" id="address" name="Location" value="<%= companies.getLocation() %>" oninput="validateLocation()">
+			<span class="phoneError" id="locationError" ></span> <br><br>
+			
+			Company Type<input type="text" id="char" name="Type" value="<%= companies.getType() %>" oninput="validatevalidateCharactersOnly()">
+			<span class="phoneError" id="characterError" ></span> <br><br>
+			
+			Number of employees in the Company <input type="text" id="employee" name="Numberofemployee" value="<%= companies.getNumberofemp() %>" oninput="validateEmp()">
+			<span class="phoneError" id="employeeError" ></span> <br><br>
+			
+			<button type="submit" id="submit" disabled>Update Company Details</button>
+				
 		</form>
 		
 	<%
