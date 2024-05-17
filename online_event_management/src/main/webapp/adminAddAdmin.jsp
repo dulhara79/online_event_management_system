@@ -123,7 +123,7 @@ label {
 			   </div>
 		   	   
 		       <div class="form-group">
-		           <label for="exampleInputEmail1">Username</label>
+		           <label for="exampleInputEmail1">Use-rname</label>
 		           <input type="text" class="form-control" id="userName" name="username" placeholder="Enter username" required oninput="validateUserNames()">
 		           <span class="phoneError" id="usernameError" ></span>
 		       </div>
@@ -141,7 +141,7 @@ label {
 		       </div>
 		
 		       <div class="form-group">
-		           <label for="mobileno">Phone number</label>
+		           <label for="mobileno">Mobile number</label>
 		           <input type="text" class="form-control" id="mobileno" name="mobileno" placeholder="Enter Mobile Number" required oninput="validatePhone()">
 		           <span class="phoneError" id="phoneError" ></span>
 		       </div>
@@ -157,8 +157,8 @@ label {
 		       </div>
 		       
 		       <div class="form-group">
-		           <label for="password">Comfirm Password</label>
-		           <input type="password" class="form-control" id="rePassword" name="password" placeholder="Comfirm Password" required oninput="validatePasswords()">
+		           <label for="password">Confirm Password</label>
+		           <input type="password" class="form-control" id="rePassword" name="password" placeholder="Confirm Password" required oninput="validatePasswords()">
 		           <span class="phoneError" id="passwordError"></span>
 		       </div>
 		
