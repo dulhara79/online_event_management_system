@@ -95,7 +95,7 @@
 						 --%>
 						<li class="nav-item"><a class="nav-link"
 							href="userProfile.jsp">Profile</a></li>
-						<li class="nav-item"><a class="nav-link" href="AboutUs.jsp">About
+						<li class="nav-item"><a class="nav-link" href="aboutus.jsp">About
 								us</a></li>
 						<li class="nav-item">
 							<form method="post" action="<%=logoutUrl%>"
@@ -122,7 +122,7 @@
 			   </div>
 			   
 			   <div class="form-group">
-		           <label for="exampleInputEmail1">Username</label>
+		           <label for="exampleInputEmail1">User-name</label>
 		           <input type="text" class="form-control" id="userName" name="username" placeholder="Enter username" required oninput="validateUserNames()">
 		           <span class="phoneError" id="usernameError" ></span>
 		       </div>
@@ -154,7 +154,7 @@
 		       </div>
 		
 		       <div class="form-group">
-		           <label for="mobileno">Phone number</label>
+		           <label for="mobileno">Mobile number</label>
 		           <input type="text" class="form-control" id="mobileno" name="mobileno" placeholder="Enter Mobile Number" required oninput="validatePhone()">
   				   <span class="phoneError" id="phoneError" ></span><!-- <br><br> -->
 		       </div>
@@ -170,8 +170,8 @@
 		       </div>
 		       
 		        <div class="form-group">
-		           <label for="password">Comfirm Password</label>
-		           <input type="password" class="form-control" id="rePassword" name="password" placeholder="Comfirm Password" required oninput="validatePasswords()">
+		           <label for="password">Confirm Password</label>
+		           <input type="password" class="form-control" id="rePassword" name="password" placeholder="Confirm Password" required oninput="validatePasswords()">
 		           <span class="phoneError" id="passwordError"></span>
 		       </div>
 		

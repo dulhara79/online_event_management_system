@@ -26,6 +26,8 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	
+<script src="js/userFormValidation.js"></script>
 
 </head>
 <body>
@@ -110,25 +112,28 @@
 </form> --%>
 
 <div class="container">
-    <form action="<%= request.getContextPath() %>/UserRegisterServlet" method="post">
+    <form action="<%= request.getContextPath() %>/UserRegisterServlet" method="post" oninput="enableSubmit()">
     	<div class="form-group">
             <label for="username">UserID</label>
             <input type="text" id="username" name="username" value="<%= userId %>" disabled="disabled">
         </div>
         
         <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Enter username" required>
+            <label for="username">User name</label>
+            <input type="text" id="userName" name="username" placeholder="Enter username" required oninput="validateUserNames()">
+            <span class="phoneError" id="usernameError" ></span>
         </div>
 
         <div class="form-group">
             <label for="firstname">First name</label>
-            <input type="text" id="firstname" name="firstname" placeholder="Enter First name" required>
+            <input type="text" id="firstname" name="firstname" placeholder="Enter First name" required oninput="validateFirstNames()">
+            <span class="phoneError" id="firstnameError" ></span>
         </div>
 
         <div class="form-group">
             <label for="lastname">Last name</label>
-            <input type="text" id="lastname" name="lastname" placeholder="Enter Last name" required>
+            <input type="text" id="lastname" name="lastname" placeholder="Enter Last name" required oninput="validateLastNames()">
+            <span class="phoneError" id="lastnameError" ></span>
         </div>
 
         <div class="form-group">
@@ -141,12 +146,14 @@
 
         <div class="form-group">
             <label for="address">Address</label>
-            <textarea id="address" name="address" placeholder="Enter Address" required></textarea>
+            <input type="text" id="address" name="address" placeholder="Enter Address" required oninput="validateAddress()">
+            <span class="phoneError" id="addressError" ></span>
         </div>
 
         <div class="form-group">
-            <label for="mobileno">Phone number</label>
-            <input type="text" id="mobileno" name="mobileno" placeholder="Enter Mobile Number" required>
+            <label for="mobileno">Mobile number</label>
+            <input type="text" id="mobileno" name="mobileno" placeholder="Enter Mobile Number" required oninput="validatePhone()">
+            <span class="phoneError" id="phoneError" ></span>
         </div>
 
         <div class="form-group">
@@ -156,10 +163,16 @@
 
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Enter Password" required>
+            <input type="password" id="password" name="password" placeholder="Enter Password" required oninput="validatePasswords()">
         </div>
+        
+        <div class="form-group">
+          <label for="password">Confirm Password</label>
+          <input type="password" class="form-control" id="rePassword" name="password" placeholder="Confirm Password" required oninput="validatePasswords()">
+          <span class="phoneError" id="passwordError"></span>
+      </div>
 
-        <button type="submit" class="btn">Add User Details</button>
+        <button type="submit" id="submit" class="btn btn btn-primary btn-block">Add User Details</button>
     </form>
 </div>
 

@@ -37,6 +37,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             display: table; /* Display form elements as a table */
         }
+        
 
         /* Style form inputs */
         input[type="text"],[type="password"] {
@@ -60,6 +61,10 @@
             width: 100%;
             font-size: 16px;
         }
+        
+        .phoneError{
+		color: red;
+	}
 
         /* Responsive styling */
         @media (max-width: 480px) {
@@ -69,6 +74,32 @@
         }
     </style>
     <script type="text/javascript">
+    function validateUserNames() {
+        var user = document.getElementById('userName').value;
+        var regex = /^[a-zA-Z]+$/;
+        
+        if (!regex.test(user)) {
+          document.getElementById('companyNameError').innerText = 'User name name must contain only alphabetic characters.';
+          return false;
+        } else {
+          document.getElementById('companyNameError').innerText = '';
+          return true;
+        }
+    }
+    
+    function validatevalidateCharactersOnly() {
+        var user = document.getElementById('char').value;
+        var regex = /^[a-zA-Z]+$/;
+        
+        if (!regex.test(user)) {
+          document.getElementById('characterError').innerText = 'Must contain only alphabetic characters.';
+          return false;
+        } else {
+          document.getElementById('characterError').innerText = '';
+          return true;
+        }
+    }
+    
     function validatePasswords() {
     	var password = document.getElementById('password').value;
     	var rePassword = document.getElementById('rePassword').value;
@@ -80,8 +111,45 @@
     		return true;
     	}
     }
+    
+    function validateAddress() {
+        var address = document.getElementById('address').value;
+        var regex = /^[a-zA-Z0-9/. ,]+$/;
 
+        if (!regex.test(address)) {
+          document.getElementById('locationError').innerText = 'Location can only contain letters, numbers, forward slashes, dots, and commas.';
+          return false;
+        } else {
+          document.getElementById('locationError').innerText = '';
+          return true;
+        }
+      }
+    
+    function validateEmployee()() {
+    	var phone = document.getElementById('employee').value;
+    	var num = /^[0-9]+$/;
+    	
+    	if (!num.test(phone)) {
+    		document.getElementById('employeeError').innerText = '* Number of employee should be a number.';
+    		return false;
+    	} else {
+          document.getElementById('employeeError').innerText = '';
+          return true;
+        }
+    }
+    
+    function enableSubmit() {
+    	var isUsernameValidate = validateUserNames();
+    	var arePasswordsValid = validatePasswords();
+    	var areCharactersValidate = validatevalidateCharactersOnly();
+    	var isLocationValidate = validateAddress();
+    	var areEmployeeValidate = validateEmployee();
+    	
+    	document.getElementById('submit').disabled = !(areEmployeeValidate && isLocationValidate && areCharactersValidate && arePasswordsValid && isUsernameValidate);
+    }
+    
     </script>
+    
 </head>
 <body>
 <h1>Insert Company Details</h1>
@@ -129,17 +197,27 @@ function validateForm() {
 </form>   --%>
 
 
-<form action="<%= request.getContextPath()%>/Addcompanyservlet" method = "post">
+<form action="<%= request.getContextPath()%>/Addcompanyservlet" method = "post" oninput="enableSubmit()">
 	Company ID<input type="text" id="companyId" name="" value="<%=comId%>" disabled="disabled">
-	Company Name <input type="text" name="UserName">
+	
+	Company Name <input type="text" id="userName" name="UserName" oninput="validateUserNames()">
+	<span class="phoneError" id="companyNameError" ></span>
+	
 	Company Password<input id="password" type="password" name="" oninput="validatePasswords()">
+	
 	Confirm Password<input id="rePassword" type="password" name="Password" oninput="validatePasswords()">
 	<span class="phoneError" id="passwordError" ></span>
-	Company Location<input type="text" name="Location">
-	Company Type<input type="text" name="Type">
-	Number of employees in the Company <input type="text" name="Numberofemployee">
 	
-	<input type="submit" value="Add Company Details"> 
+	Company Location<input type="text" id="address" name="Location" oninput="validateLocation()">
+	<span class="phoneError" id="locationError" ></span>
+	
+	Company Type<input type="text" id="char" name="Type" oninput="validatevalidateCharactersOnly()">
+	<span class="phoneError" id="characterError" ></span>
+	
+	Number of employees in the Company <input type="text" id="employee" name="Numberofemployee" oninput="validateEmp()">
+	<span class="phoneError" id="employeeError" ></span>
+	
+	<input type="submit" id="submit" value="Add Company Details" disabled> 
 </form> 
 
 </body>
