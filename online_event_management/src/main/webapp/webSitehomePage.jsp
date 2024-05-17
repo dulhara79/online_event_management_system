@@ -161,7 +161,7 @@ section p {
         <nav>
             <ul>
                 <li><a href="userLogin.jsp">Login</a></li>
-                <li><a href="userRegister.jsp">Register</a></li>
+                <li><a href="userRegister.jsp">User Register</a></li>
                 <li><a href="company.jsp">Company Register</a></li>
                 <!-- <li><a href="allEvents.jsp">Events</a></li> -->
                 <li><a href="aboutus.jsp">About Us</a></li>
