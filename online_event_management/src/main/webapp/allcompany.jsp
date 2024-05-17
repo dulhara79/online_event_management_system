@@ -11,11 +11,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Company Details Page</title>
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-image: url('path/to/your/background-image.jpg');
+        background-image: url('img/u2.jpg');
         background-size: cover;
         background-position: center;
         padding: 20px;
@@ -64,14 +64,14 @@
 <table>
 	<thead>
 		<tr>
-			<th> companyId </th>
-			<th> userName </th> 
-			<th> password </th>
-			<th> location </th>
-			<th> type</th>
-			<th> number of employees </th>
-			<th> Edit </th> 
-			<th> Delete </th>
+			<th> Company Id </th>
+			<th> Company User Name </th> 
+			<th> Company Password </th>
+			<th> Company Location </th>
+			<th> Company Type</th>
+			<th> Number of Employees </th>
+			<th> Update Company Details </th> 
+			<th> Delete Company Details </th>
 		</tr>
 	</thead>
 	
@@ -97,7 +97,7 @@
 				<td>
 					<form action="<%= request.getContextPath()%>/Getcompanyservlet" method="post">
 						<input type="hidden" name="CompanyId" value="<%= companies.getCompanyId() %>"> 
-						<input type="submit" value="Edit">
+						<input type="submit" value="Update">
 					</form>
 				
 				</td>

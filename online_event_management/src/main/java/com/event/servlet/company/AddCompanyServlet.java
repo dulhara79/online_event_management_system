@@ -60,7 +60,7 @@ public class AddCompanyServlet extends HttpServlet {
 		Icompanyservice.addCompany(company);
 		
 		request.setAttribute("company", company);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/allcompany.jsp"); //redirection page
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/companyLogin.jsp"); //redirection page
 		dispatcher.forward(request, response);
 		
 	}
