@@ -22,6 +22,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
+<script src="js/userFormValidation.js"></script>
+
 	<style>
 	
 		body{
@@ -46,58 +48,7 @@
 	</style>
 
 </head>
-<body>
-<%-- 
-<form class="admin-add-form" action="<%= request.getContextPath() %>/AddUserServlet" method = "post">
-	<label class="admin-form-lable" for="admin-user-name">Username</label>
-	<input class="admin-form-input" type="text" name="username" placeholder="Enter username" required="required">
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-fname">First name</label>
-	<input class="admin-form-input" type="text" name="firstname" placeholder="Enter First name" required="required">
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-lname">Last name</label>
-	<input class="admin-form-input" type="text" name="lastname" placeholder="Enter Last name" required="required">
-	
-	<br><br>
-	
-	<label class="admin-form-lable" for="admin-user-gender" name="gender">Gender</label>
-	<input type="radio" id="gebder1" name="gender" value="Male" required="required">
-	<label for="gender1">Male</label>
-	<input type="radio" id="gender2" name="gender" value="Female" required="required">
-	<label for="age1">Female</label>
-	
-	<br><br>
-	
-	<label class="admin-form-lable" for="admin-user-address">Address</label>
-	<textarea class="admin-user-address-area" rows="4" cols="20" name="address" placeholder="Enter Address" required="required"></textarea>
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-mobile">Phone number</label>
-	<input class="admin-form-input" type="text" name="mobileno" placeholder="Enter Mobile Number" required="required">
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-email">Email</label>
-	<input class="admin-form-input" type="email" name="email" placeholder="Enter Email" required="required">
-	
-	<br>
-	
-	<label class="admin-form-lable" for="admin-user-password">Password</label>
-	<input class="admin-form-input" type="password" id="password" name="password" placeholder="Enter Password" required="required">
-	
-	<br>
-	
-	<input class="admin-form-submit-button" type="submit" name="submit" value="Add User Details">
-
-
-</form>
- --%>
- 
+<body> 
  		<% 
 			String status = (String) session.getAttribute("status"); 
 		
@@ -164,43 +115,48 @@
     <h1>Add User</h1>
     <div class="row">
     	<div class="col-8 offset-2">
-		   <form action="<%= request.getContextPath() %>/AddUserServlet" method="post">
+		   <form action="<%= request.getContextPath() %>/AddUserServlet" method="post" oninput="enableSubmit()">
 			  <div class="form-group">
 					<label for="username">UserID</label> 
-					<input type="text" id="username" name="userId" value="<%=userId%>" disabled="disabled">
+					<input type="text"  name="userId" value="<%=userId%>" disabled="disabled"> <!-- id="username" -->
 			   </div>
 			   
 			   <div class="form-group">
 		           <label for="exampleInputEmail1">Username</label>
-		           <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+		           <input type="text" class="form-control" id="userName" name="username" placeholder="Enter username" required oninput="validateUserNames()">
+		           <span class="phoneError" id="usernameError" ></span>
 		       </div>
 		
 		       <div class="form-group">
 		           <label for="exampleInputEmail1">First name</label>
-		           <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First name" required>
+		           <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter First name" required oninput="validateFirstNames()">
+		           <span class="phoneError" id="firstnameError" ></span>
 		       </div>
 		
 		       <div class="form-group">
 		           <label for="lastname">Last name</label>
-		           <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Last name" required>
+		           <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter Last name" required oninput="validateLastNames()">
+		           <span class="phoneError" id="lastnameError" ></span>
 		       </div>
 		
 		       <div class="form-group">
 		           <label>Gender</label><br>
-		           <input type="radio" id="male" name="gender" value="Male" required>
+		           <input type="radio" id="gender" name="gender" value="Male" required>
 		           <label for="male">Male</label>
-		           <input type="radio" id="female" name="gender" value="Female" required>
+		           <input type="radio" id="gender" name="gender" value="Female" required>
 		           <label for="female">Female</label>
 		       </div>
 		
 		       <div class="form-group">
 		           <label for="address">Address</label>
-		           <textarea id="address" class="form-control" name="address" placeholder="Enter Address" required></textarea>
+		           <input id="address" class="form-control" name="address" placeholder="Enter Address" required required oninput="validateAddress()">
+		           <span class="phoneError" id="addressError" ></span>
 		       </div>
 		
 		       <div class="form-group">
 		           <label for="mobileno">Phone number</label>
-		           <input type="text" class="form-control" id="mobileno" name="mobileno" placeholder="Enter Mobile Number" required>
+		           <input type="text" class="form-control" id="mobileno" name="mobileno" placeholder="Enter Mobile Number" required oninput="validatePhone()">
+  				   <span class="phoneError" id="phoneError" ></span><!-- <br><br> -->
 		       </div>
 		
 		       <div class="form-group">
@@ -210,10 +166,16 @@
 		
 		       <div class="form-group">
 		           <label for="password">Password</label>
-		           <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+		           <input type="password" class="form-control" id="password" placeholder="Enter Password" required oninput="validatePasswords()">
+		       </div>
+		       
+		        <div class="form-group">
+		           <label for="password">Comfirm Password</label>
+		           <input type="password" class="form-control" id="rePassword" name="password" placeholder="Comfirm Password" required oninput="validatePasswords()">
+		           <span class="phoneError" id="passwordError"></span>
 		       </div>
 		
-		       <button type="submit" class="btn btn btn-primary btn-block">Add User Details</button>
+		       <button type="submit" id="submit" class="btn btn btn-primary btn-block" disabled>Add User Details</button>
 		   </form>
 		</div>
 	</div>  

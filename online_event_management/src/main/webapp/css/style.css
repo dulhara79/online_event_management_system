@@ -64,3 +64,7 @@
     .btn:hover {
         background-color: #0056b3;
     }
+    
+    .phoneError{
+		color: red;
+	}

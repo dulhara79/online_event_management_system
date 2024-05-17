@@ -53,7 +53,7 @@ public class AddEventServlet extends HttpServlet {
 		event.setEventDate(request.getParameter("eventdate"));
 		event.setVenue(request.getParameter("eventvenue"));
 		event.setEventDescription(request.getParameter("eventdescription"));
-		event.setBudget(Double.parseDouble(request.getParameter("budget"))); //not sure
+		event.setBudget(Double.parseDouble(request.getParameter("budget"))); 
 		
 		IEventEventService ieventSevice = new EventServiceImpl();
 		ieventSevice.addEvent(event);

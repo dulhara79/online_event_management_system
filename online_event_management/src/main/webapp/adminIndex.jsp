@@ -106,8 +106,12 @@ label {
 						<%-- 
 						<li class="nav-item active"><a class="nav-link" aria-current="page" href="<%=index%>">Home</a></li>
 						 --%>
-						<li class="nav-item"><a class="nav-link"
-							href="userProfile.jsp">Profile</a></li>
+						<li class="nav-item">
+							<form action="<%= request.getContextPath() %>/GetAdminServlet" method="POST">
+								<input type="hidden" name="adminId" value="<%= userID %>">
+								<button type="submit" class="nav-link edit-btn btn btn-outline-light btn-sm">Settings</button>
+							</form>
+						</li>
 						<li class="nav-item"><a class="nav-link" href="AboutUs.jsp">About
 								us</a></li>
 						<li class="nav-item">
@@ -130,7 +134,6 @@ label {
 					<li><a href="#">Dashboard</a></li>
 					<li><a href="#">Analytics</a></li>
 					<li><a href="#">Reports</a></li>
-					<li><a href="#">Settings</a></li>
 					<li><a href="adminAddUser.jsp">Add User</a></li>
 					<li><a href="adminAddAdmin.jsp">Add Admin</a></li>
 					<li class="nav-item"><a class="nav-link"

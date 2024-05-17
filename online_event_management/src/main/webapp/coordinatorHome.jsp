@@ -145,7 +145,7 @@ String userName = (String) session.getAttribute("coordinatorName");
 
 <style>
 
-body {
+	body {
 	  font-family: Arial, sans-serif;
 	  margin: 0;
 	  padding: 0;
@@ -224,7 +224,7 @@ body {
 	}
 	
 	.banner {
-	  background-color: #e3e1e1;
+	  background-color: #e2cced;
 	  padding: 50px;
 	  text-align: center;
 	  font-family: 'Poppins', sans-serif;
@@ -241,7 +241,7 @@ body {
 	}
 	
 	.about {
-	  background-color: #e3e1e1;
+	  background-color: #e2cced;
 	  padding: 50px;
 	  text-align: center;
 	  font-family: 'Poppins', sans-serif;
