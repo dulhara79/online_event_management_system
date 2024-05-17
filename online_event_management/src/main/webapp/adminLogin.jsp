@@ -123,10 +123,19 @@
 <link rel="stylesheet" type="text/css" href="css/adminLoginStyle.css">
 <style>
   .container {
-    display: flex;
+   /*  display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; */
+    background-color: rgb(209, 69, 69);
+  }
+  .concontainer-in {
+  	display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    height: 10hv;
+    background-color: white;
   }
   .login-image {
     flex: 1;
@@ -178,31 +187,33 @@
 <body>
 
 <div class="container">
-  <div class="login-image">
-  	<img class="login-image" alt="login Image" src="img/adminLoginImg.jpg">
-  </div>
-  <div class="login-form">
-    <form action="<%= request.getContextPath() %>/AdminLoginServlet" method="post">
-      <h1>Admin Login</h1>
-      
-      <div class="form-group">
-        <label for="admin-user-name">Admin ID</label>
-        <input type="text" class="form-control" name="adminId" placeholder="Enter user ID" required="required">
-      </div>
-      
-      <div class="form-group">
-        <label for="admin-user-password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required="required">
-      </div>
-      
-      <button type="submit" class="btn btn-primary btn-block">Login</button>
-    </form>
-    
-    <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
-        <div class="alert alert-danger mt-3" role="alert">
-            <%= errorMessage %>
-        </div>
-    <% } %>
+	<div class="concontainer-in">
+	  <div class="login-image">
+	  	<img class="login-image" alt="login Image" src="img/adminLoginImg.jpg">
+	  </div>
+	  <div class="login-form">
+	    <form action="<%= request.getContextPath() %>/AdminLoginServlet" method="post">
+	      <h1>Admin Login</h1>
+	      
+	      <div class="form-group">
+	        <label for="admin-user-name">Admin ID</label>
+	        <input type="text" class="form-control" name="adminId" placeholder="Enter user ID" required="required">
+	      </div>
+	      
+	      <div class="form-group">
+	        <label for="admin-user-password">Password</label>
+	        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required="required">
+	      </div>
+	      
+	      <button type="submit" class="btn btn-primary btn-block">Login</button>
+	    </form>
+	    
+	    <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+	        <div class="alert alert-danger mt-3" role="alert">
+	            <%= errorMessage %>
+	        </div>
+	    <% } %>
+	  </div>
   </div>
 </div>
 
