@@ -123,25 +123,28 @@
 <link rel="stylesheet" type="text/css" href="css/adminLoginStyle.css">
 <style>
   .container {
-   /*  display: flex;
+   /*  display: flex; */
     align-items: center;
     justify-content: center;
-    min-height: 100vh; */
-    background-color: rgb(209, 69, 69);
+    min-height: 100vh;
+    background-color: rgb(218, 192, 163);
+    padding-top: 120px;
   }
   .concontainer-in {
   	display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    height: 10hv;
+    border-radius: 10px;
+    min-height: 10rem;
     background-color: white;
+    border-top: 50px;
   }
   .login-image {
     flex: 1;
     background: /*url('img/adminLoginImg.jpg')*/ no-repeat center center;
     background-size: cover;
-    /*max-width: 100px;*/
+    /* max-width: 100px; */
     width: 40rem;
     height: auto;
   }

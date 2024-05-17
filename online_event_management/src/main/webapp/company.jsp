@@ -51,13 +51,13 @@
         
 
         /* Style the submit button */
-        input[type="submit"] {
+        button[type="submit"] {
             background-color: #4CAF50; /* Green */
             color: white;
             padding: 12px 20px;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
+            /* cursor: pointer; */
             width: 100%;
             font-size: 16px;
         }
@@ -125,7 +125,7 @@
         }
       }
     
-    function validateEmployee()() {
+    function validateEmployee(){
     	var phone = document.getElementById('employee').value;
     	var num = /^[0-9]+$/;
     	
@@ -201,23 +201,23 @@ function validateForm() {
 	Company ID<input type="text" id="companyId" name="" value="<%=comId%>" disabled="disabled">
 	
 	Company Name <input type="text" id="userName" name="UserName" oninput="validateUserNames()">
-	<span class="phoneError" id="companyNameError" ></span>
+	<span class="phoneError" id="companyNameError" ></span> <br><br>
 	
 	Company Password<input id="password" type="password" name="" oninput="validatePasswords()">
 	
 	Confirm Password<input id="rePassword" type="password" name="Password" oninput="validatePasswords()">
-	<span class="phoneError" id="passwordError" ></span>
+	<span class="phoneError" id="passwordError" ></span> <br><br>
 	
 	Company Location<input type="text" id="address" name="Location" oninput="validateLocation()">
-	<span class="phoneError" id="locationError" ></span>
+	<span class="phoneError" id="locationError" ></span> <br><br>
 	
 	Company Type<input type="text" id="char" name="Type" oninput="validatevalidateCharactersOnly()">
-	<span class="phoneError" id="characterError" ></span>
+	<span class="phoneError" id="characterError" ></span> <br><br>
 	
 	Number of employees in the Company <input type="text" id="employee" name="Numberofemployee" oninput="validateEmp()">
-	<span class="phoneError" id="employeeError" ></span>
+	<span class="phoneError" id="employeeError" ></span> <br><br>
 	
-	<input type="submit" id="submit" value="Add Company Details" disabled> 
+	<button type="submit" id="submit" disabled>Add Company Details</button>
 </form> 
 
 </body>

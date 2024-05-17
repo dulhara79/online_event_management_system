@@ -96,7 +96,7 @@ label {
 						 --%>
 						<li class="nav-item"><a class="nav-link"
 							href="userProfile.jsp">Profile</a></li>
-						<li class="nav-item"><a class="nav-link" href="AboutUs.jsp">About
+						<li class="nav-item"><a class="nav-link" href="aboutus.jsp">About
 								us</a></li>
 						<li class="nav-item">
 							<form method="post" action="<%=logoutUrl%>"
