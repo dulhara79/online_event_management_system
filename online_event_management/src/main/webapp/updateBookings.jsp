@@ -22,11 +22,11 @@
 <style>
     body {
         background-image: url('https://wallpapercave.com/wp/LtRbuze.jpg');
-        background-size: cover; /* Adjust as needed */
+        background-size: cover; 
         font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        /* Add other background properties if needed */
+        
     }
  
         h2 {
@@ -40,7 +40,7 @@
 }
 
         form {
-             width: 60%; /* Increase the width to 60% */
+             width: 60%; 
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.7);
             padding: 20px;
@@ -81,7 +81,7 @@
         
 table {
     width: 80%;
-    height: 100px; /* Set the height to 300px or adjust as needed */
+    height: 100px; 
     margin: 20px auto;
     border-collapse: collapse;
     background-color: rgba(255, 255, 255, 0.7); /* Use rgba for transparency */
@@ -112,6 +112,30 @@ input[type="submit"]:hover {
 
      
     </style>
+
+
+<script>
+function validateForm() {
+    var eventName = document.forms["updateBookingForm"]["eventName"].value;
+    var eventDescription = document.forms["updateBookingForm"]["eventDescription"].value;
+
+    var eventNamePattern = /^[a-zA-Z_ ]+$/;
+    var eventDescriptionPattern = /^[a-zA-Z0-9_.,!? ]+$/;
+
+    if (!eventNamePattern.test(eventName)) {
+        alert("Event Name can only contain letters, spaces and underscores.");
+        return false;
+    }
+
+    if (!eventDescriptionPattern.test(eventDescription)) {
+        alert("Event Description can only contain letters, numbers, underscores, commas, periods, exclamation marks, question marks, and spaces.");
+        return false;
+    }
+
+    return true; // Return true to allow form submission
+}
+
+</script>
 
 
 </head>
@@ -148,14 +172,14 @@ input[type="submit"]:hover {
 		for(Booking bookings: bookinglist) {
 	 %>
 	
-		<form action="<%= request.getContextPath()%>/UpdateBookingServlet" method="post">
+		<form name="updateBookingForm" action="<%= request.getContextPath()%>/UpdateBookingServlet" method="post" onsubmit="return validateForm();">
 			
 			<input type="hidden" name="userId" value="<%= bookings.getUserId() %>" > 
 			<input type="hidden" name="bookingId" value="<%= bookings.getBookingId() %>" >
 			<input type="hidden" name="eventId" value="<%= bookings.getEventId() %>" >
 			
-			Booking Id <input type="text" name="bookingId" value="<%= bookings.getBookingId() %>" disabled="disabled">
-			Event ID <input type="text" name="eventId" value="<%= bookings.getEventId() %>" disabled="disabled">
+			Booking Id <input type="text" name="bookingId" value="<%= bookings.getBookingId() %>" readonly>
+			Event ID <input type="text" name="eventId" value="<%= bookings.getEventId() %>" readonly>
 			Event Name <input type="text" name="eventName" value="<%= bookings.getEventName() %>" >
 			Event Description <input type="text" name="eventDescription" value="<%= bookings.getEventDescription() %>" >
 			
