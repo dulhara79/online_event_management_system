@@ -78,12 +78,14 @@
     <br>
     
     <input type="submit" name="submit" value="Login">
-</form>
-
-<% if (errorMessage != null && !errorMessage.isEmpty()) { %>
+    
+    <% if (errorMessage != null && !errorMessage.isEmpty()) { %>
     <div class="error-message">
         <%= errorMessage %>
     </div>
+    
+</form>
+
 <% } %>
 
 </body>
