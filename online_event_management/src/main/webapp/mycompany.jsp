@@ -68,20 +68,6 @@
             }
         }
     </style>
-    <script type="text/javascript">
-    function validatePasswords() {
-    	var password = document.getElementById('password').value;
-    	var rePassword = document.getElementById('rePassword').value;
-    	if (password !== rePassword) {
-    		document.getElementById('passwordError').innerText = '* Passwords do not match.';
-    		return false;
-    	} else {
-    		document.getElementById('passwordError').innerText = '';
-    		return true;
-    	}
-    }
-
-    </script>
 </head>
 <body>
 <h1>Insert Company Details</h1>
@@ -94,7 +80,7 @@
 		String comId = CommonUtil.generatecompanyIds(companyIds);
 
 %>
-<%--  <script>
+<script>
 function validateForm() {
     var password = document.getElementById("password").value;
     var employees = document.getElementById("employees").value;
@@ -117,7 +103,7 @@ function validateForm() {
 }
 </script>
 
-<form action="<%= request.getContextPath()%>/Addcompanyservlet" method="post" onsubmit="return validateForm()">
+<form action="<%= request.getContextPath()%>/Adompanyservlet" method="post" onsubmit="return validateForm()">
     Company ID <input type="text" id="companyId" name="companyId" value="<%=comId%>" disabled>
     Company Name <input type="text" name="userName">
     Company Password <input type="password" id="password" name="password">
@@ -126,20 +112,11 @@ function validateForm() {
     Number of Employees in the Company <input type="text" id="employees" name="numberOfEmployees">
     
     <input type="submit" value="Add Company Details">
-</form>   --%>
+</form>  
 
 
-<form action="<%= request.getContextPath()%>/Addcompanyservlet" method = "post">
-	Company ID<input type="text" id="companyId" name="" value="<%=comId%>" disabled="disabled">
-	Company Name <input type="text" name="UserName">
-	Company Password<input id="password" type="password" name="" oninput="validatePasswords()">
-	Confirm Password<input id="rePassword" type="password" name="Password" oninput="validatePasswords()">
-	<span class="phoneError" id="passwordError" ></span>
-	Company Location<input type="text" name="Location">
-	Company Type<input type="text" name="Type">
-	Number of employees in the Company <input type="text" name="Numberofemployee">
-	
-	<input type="submit" value="Add Company Details"> 
+
+
 </form> 
 
 </body>

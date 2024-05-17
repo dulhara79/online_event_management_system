@@ -15,8 +15,8 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        background-image: url('path/to/your/background-image.jpg');
+        /* Use the background-image property to set your background image */
+        background-image: url('img/u2.jpg'); /* Replace 'path_to_your_image.jpg' with your actual image path */
         background-size: cover;
         background-position: center;
         padding: 20px;
@@ -72,12 +72,12 @@
 		<form action="<%= request.getContextPath()%>/Updatecompanyservlet" method="post"> 
 		
 			<input type="hidden" type="text" name="companyId" value="<%= companies.getCompanyId() %>">
-			Company Id<input type="text" name="companyId" value="<%= companies.getCompanyId() %>" disabled="disabled">
-			Company Name <input type="text" name="UserName" value="<%= companies.getUserName() %>" >
-			Company Password <input type="text" name="Password" value="<%= companies.getPassword() %>" >
-			Company Location <input type="text" name="Location" value="<%= companies.getLocation() %>" >
-			Company Type 	<input type="text" name="Type" value="<%= companies.getType() %>" >
-			Number of employees in the Company <input type="text" name="Numberofemployee" value="<%= companies.getNumberofemp() %>" >
+			Enter Company Id<input type="text" name="companyId" value="<%= companies.getCompanyId() %>" disabled="disabled">
+			Enter Company Name <input type="text" name="UserName" value="<%= companies.getUserName() %>" >
+			Enter Company Password <input type="text" name="Password" value="<%= companies.getPassword() %>" >
+			Enter Company Location <input type="text" name="Location" value="<%= companies.getLocation() %>" >
+			Enter Company Type 	<input type="text" name="Type" value="<%= companies.getType() %>" >
+			Enter Number of employees in the Company <input type="text" name="Numberofemployee" value="<%= companies.getNumberofemp() %>" >
 			<input type="submit" value="Update">
 		
 		</form>
