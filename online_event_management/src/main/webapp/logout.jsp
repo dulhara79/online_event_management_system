@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%-- <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 
@@ -29,12 +29,44 @@
 		response.sendRedirect("adminLogin.jsp");// redirect to the login page
 	}
 	if (userId != null && userId.startsWith("CP")) {
-		//  response.sendRedirect("companyLogin.jsp");// redirect to the login page
+		response.sendRedirect("companyLogin.jsp");// redirect to the login page
 	}
 	if (userId != null && userId.startsWith("EC")) {
-		//  response.sendRedirect("coordinatorLogin.jsp");// redirect to the login page
+		response.sendRedirect("coordinatorLogin.jsp");// redirect to the login page
 	}
 	%>
 
+</body>
+</html> --%>
+
+
+
+
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Log Out</title>
+</head>
+<body>
+<%
+    String userId = (String) session.getAttribute("userId");
+    session.invalidate();
+    if (userId != null) {
+        if (userId.startsWith("U0")) {
+            response.sendRedirect("userLogin.jsp");
+        } else if (userId.charAt(0)== 'A' && userId.charAt(1)== 'D') {
+            response.sendRedirect("adminLogin.jsp");
+        } else if (userId.startsWith("CP")) {
+           response.sendRedirect("companyLogin.jsp");
+        } else if (userId.startsWith("EC")) {
+            response.sendRedirect("coordinatorLogin.jsp");
+        }
+    } else {
+        response.sendRedirect("userLogin.jsp");
+    }
+%>
 </body>
 </html>
