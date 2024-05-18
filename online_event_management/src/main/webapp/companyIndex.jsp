@@ -123,7 +123,7 @@
 } */
 
 .creative-welcome {
-		margin-top: -30px;
+		margin-top: -20px;
         font-family: 'Comic Sans MS', cursive; /* Set a different cute font */
         font-size: 28px; /* Increase the font size */
         color: white; /* Set the text color to white */
