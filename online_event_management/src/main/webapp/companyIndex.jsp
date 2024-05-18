@@ -18,26 +18,35 @@
 
 <style>
      body {
-        background-color:#f2f6fc;
-		color: #69707a;
+       background-image: url('https://wallpapercave.com/wp/wp3990432.jpg'); /* Replace 'path_to_your_image.jpg' with the actual path to your image */
+        background-repeat: no-repeat; /* Prevent the background image from repeating */
+        background-size: cover; /* Cover the entire background with the image */
+        background-position: center; /* Center the background image */
+        background-attachment: fixed; /* Fixed background position */
+        color: #69707a;
         
     }
     
 
     
     h1 {
-        margin-top: 40px;
-        font-size: 88px; /* Change the font size to make it bigger */
-    /* font-family: 'Arial', sans-serif; */ /* Change the font family to a cute font type */
-    font-family:'Comic Sans MS', cursive;
-    color: white; /* Set the text color to white */
-    text-shadow: 6px 6px 4px black;
+        margin-top: 30px;
+        font-size: 78px;
+        font-family:'Comic Sans MS', cursive;
+        color: white;
+        text-shadow: 3px 3px 4px black;
+        text-align: center;
+        background-image: linear-gradient(to right, #A0C4FF, blue); /* Grey-blue gradient */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; /* Apply gradient to text */
     }
     .welcome-msg {
-        margin-top: 0;
+        margin-top: -50;
         font-size: 24px;
         text-shadow: 2px 2px 4px black; /* Add text shadow */
     font-family: 'Comic Sans MS', cursive;
+    text-align: center;
+     color: white !important;
     }
     .image-container {
         display: flex;
@@ -103,7 +112,7 @@
 }
 
 .logo {
-        color: white; 
+        color: white !important; 
         font-size: 20px;
     }
     
@@ -114,11 +123,11 @@
 } */
 
 .creative-welcome {
-		margin-top: 30px;
+		margin-top: -20px;
         font-family: 'Comic Sans MS', cursive; /* Set a different cute font */
         font-size: 28px; /* Increase the font size */
         color: white; /* Set the text color to white */
-        text-shadow: 2px 2px 4px black; /* Add a black shadow around the text */
+        text-shadow: 3px 3px 4px black; /* Add a black shadow around the text */
         margin: 30px; /* Add some margin for spacing */
     }
     
@@ -150,9 +159,9 @@
 </table>
  
 <div class="navbar">
-    <h1 class="logo">Welcome, <%= companyName %>!</h1>
+    <h1 class="logo">Welcome <%= companyName %>!</h1>
     <ul class="nav-links">
-        <li class="nav-item-left"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item-left"><a class="nav-link" href="webSitehomePage.jsp">Home</a></li>
         <li class="nav-item-left"><a class="nav-link" href="company.jsp">Add Company</a></li>
         
         <li class="nav-item-right">
@@ -173,11 +182,11 @@
  
 
 
-<h1>Company</h1>
+<h1>Welcome to Evora!</h1>
 <!-- <h2>Log in Successful!</h2> -->
 
 <div class="welcome-msg">
-    <p class="creative-welcome">This is company home page</p>
+    <p class="creative-welcome">Make your business dreams a reality<br> Join with us today</p>
 </div>
 
 
