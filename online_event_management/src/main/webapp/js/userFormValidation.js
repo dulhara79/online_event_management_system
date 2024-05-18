@@ -3,7 +3,7 @@
  */
   function validateUserNames() {
     var user = document.getElementById('userName').value;
-    var regex = /^[a-zA-Z]+$/;
+    var regex = /^[a-zA-Z ]+$/;
     
     if (!regex.test(user)) {
       document.getElementById('usernameError').innerText = 'User name name must contain only alphabetic characters.';
@@ -16,7 +16,7 @@
 
 function validateFirstNames() {
     var fname = document.getElementById('firstname').value;
-    var regex = /^[a-zA-Z]+$/;
+    var regex = /^[a-zA-Z ]+$/;
     
     if (!regex.test(fname)) {
       document.getElementById('firstnameError').innerText = 'First name must contain only alphabetic characters.';
@@ -29,7 +29,7 @@ function validateFirstNames() {
 
 function validateLastNames() {
 	var lname = document.getElementById('lastname').value;
-    var regex = /^[a-zA-Z]+$/;
+    var regex = /^[a-zA-Z ]+$/;
     
     if (!regex.test(lname)) {
       document.getElementById('lastnameError').innerText = 'Last name must contain only alphabetic characters.';
